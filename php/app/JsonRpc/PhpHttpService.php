@@ -5,8 +5,8 @@ namespace App\JsonRpc;
 
 use Hyperf\RpcServer\Annotation\RpcService;
 
-#[RpcService(name: "TcpService", protocol: "jsonrpc-tcp", server: "jsonrpc-tcp")]
-class TcpService implements CalculatorServiceInterface
+#[RpcService(name: "PhpHttpService", protocol: "jsonrpc-http", server: "jsonrpc-http")]
+class PhpHttpService implements PhpServiceInterface
 {
     public function add(int $a, int $b): int
     {

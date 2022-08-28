@@ -2,7 +2,7 @@
 
 namespace App\JsonRpc;
 
-interface CalculatorServiceInterface
+interface PhpServiceInterface
 {
     public function add(int $a, int $b): int;
 }
