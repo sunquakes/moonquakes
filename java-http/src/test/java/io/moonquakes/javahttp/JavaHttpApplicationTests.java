@@ -1,10 +1,10 @@
-package io.moonquakes.java;
+package io.moonquakes.javahttp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JavaApplicationTests {
+class JavaHttpApplicationTests {
 
     @Test
     void contextLoads() {
