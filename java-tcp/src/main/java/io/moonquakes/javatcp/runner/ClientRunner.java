@@ -2,11 +2,13 @@ package io.moonquakes.javatcp.runner;
 
 import io.moonquakes.javatcp.client.IGoTcpClient;
 import io.moonquakes.javatcp.client.IPhpTcpClient;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+@Slf4j
 @Component
 public class ClientRunner implements ApplicationRunner {
 
@@ -17,13 +19,17 @@ public class ClientRunner implements ApplicationRunner {
     private IGoTcpClient goTcpClient;
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(ApplicationArguments args) {
         while (true) {
-            int res = phpTcpClient.add((int) (Math.random() * 100), (int) (Math.random() * 100));
-            System.out.println(res);
-            res = goTcpClient.Add((int) (Math.random() * 100), (int) (Math.random() * 100));
-            System.out.println(res);
-            Thread.sleep(1000);
+            try {
+                int res = phpTcpClient.add((int) (Math.random() * 100), (int) (Math.random() * 100));
+                System.out.println(res);
+                res = goTcpClient.Add((int) (Math.random() * 100), (int) (Math.random() * 100));
+                System.out.println(res);
+                Thread.sleep(1000);
+            } catch (Exception e) {
+                log.error(e.getMessage(), e);
+            }
         }
     }
 }

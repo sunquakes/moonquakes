@@ -18,16 +18,22 @@ func main() {
         s.Start()
     }()
 	result := new(Result)
-	tcpClient, err := jsonrpc4go.NewClient("tcp", "127.0.0.1", "9503")
-	//httpClient, err := jsonrpc4go.NewClient("http", "127.0.0.1", "9504")
+	phpTcpClient, err := jsonrpc4go.NewClient("tcp", "127.0.0.1", "9503")
+	phpHttpClient, err := jsonrpc4go.NewClient("http", "127.0.0.1", "9504")
+
+	javaTcpClient, err := jsonrpc4go.NewClient("tcp", "127.0.0.1", "3201")
     for {
-		err = tcpClient.Call("php_tcp/add", Params{1, 6}, result, false)
+		err = phpTcpClient.Call("php_tcp/add", Params{1, 6}, result, false)
 		fmt.Println(err) // nil
 		fmt.Println(*result) // 7
 
-		//err = httpClient.Call("php_http/add", Params{1, 2}, result, false)
-		//fmt.Println(err) // nil
-		//fmt.Println(*result) // 7
+		err = phpHttpClient.Call("php_http/add", Params{1, 2}, result, false)
+		fmt.Println(err) // nil
+		fmt.Println(*result) // 3
+
+		err = javaTcpClient.Call("JavaTcp/add", Params{2, 3}, result, false)
+		fmt.Println(err) // nil
+		fmt.Println(*result) // 5
 		time.Sleep(time.Duration(1) * time.Second)
     }
 }
