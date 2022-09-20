@@ -22,6 +22,7 @@ func main() {
 	phpHttpClient, err := jsonrpc4go.NewClient("http", "127.0.0.1", "9504")
 
 	javaTcpClient, err := jsonrpc4go.NewClient("tcp", "127.0.0.1", "3201")
+	javaHttpClient, err := jsonrpc4go.NewClient("http", "127.0.0.1", "3202")
     for {
 		err = phpTcpClient.Call("php_tcp/add", Params{1, 6}, result, false)
 		fmt.Println(err) // nil
@@ -32,6 +33,11 @@ func main() {
 		fmt.Println(*result) // 3
 
 		err = javaTcpClient.Call("JavaTcp/add", Params{2, 3}, result, false)
+		fmt.Println(err) // nil
+		fmt.Println(*result) // 5
+		time.Sleep(time.Duration(1) * time.Second)
+
+		err = javaHttpClient.Call("JavaHttp/add", Params{2, 3}, result, false)
 		fmt.Println(err) // nil
 		fmt.Println(*result) // 5
 		time.Sleep(time.Duration(1) * time.Second)
