@@ -1,44 +1,55 @@
 package main
 
 import (
-	"github.com/sunquakes/jsonrpc4go"
-	"time"
+	"context"
 	"fmt"
+	"math/rand"
+	"github.com/beego/beego/v2/task"
+	"github.com/sunquakes/jsonrpc4go"
 )
 
 func main() {
-    go func() {
-       s, _ := jsonrpc4go.NewServer("tcp", "127.0.0.1", "3601")
-       s.Register(new(GoTcp))
-       s.Start()
-    }()
-    go func() {
-        s, _ := jsonrpc4go.NewServer("http", "127.0.0.1", "3602")
-        s.Register(new(GoHttp))
-        s.Start()
-    }()
-	result := new(Result)
-	phpTcpClient, err := jsonrpc4go.NewClient("tcp", "127.0.0.1", "9503")
-	phpHttpClient, err := jsonrpc4go.NewClient("http", "127.0.0.1", "9504")
+	go func() {
+		s, _ := jsonrpc4go.NewServer("tcp", "127.0.0.1", "3601")
+		s.Register(new(GoTcp))
+		s.Start()
+	}()
+	go func() {
+		s, _ := jsonrpc4go.NewServer("http", "127.0.0.1", "3602")
+		s.Register(new(GoHttp))
+		s.Start()
+	}()
+	tk := task.NewTask("tk", "*/5 * * * * *", func(ctx context.Context) error {
+		result := new(Result)
+		phpTcpClient, _ := jsonrpc4go.NewClient("tcp", "127.0.0.1", "9503")
+		phpHttpClient, _ := jsonrpc4go.NewClient("http", "127.0.0.1", "9504")
 
-	javaTcpClient, err := jsonrpc4go.NewClient("tcp", "127.0.0.1", "3201")
-	javaHttpClient, err := jsonrpc4go.NewClient("http", "127.0.0.1", "3202")
-    for {
-		err = phpTcpClient.Call("php_tcp/add", Params{1, 6}, result, false)
-		fmt.Println(err) // nil
-		fmt.Println(*result) // 7
+		javaTcpClient, _ := jsonrpc4go.NewClient("tcp", "127.0.0.1", "3201")
+		javaHttpClient, _ := jsonrpc4go.NewClient("http", "127.0.0.1", "3202")
 
-		err = phpHttpClient.Call("php_http/add", Params{1, 2}, result, false)
-		fmt.Println(err) // nil
-		fmt.Println(*result) // 3
+		a := rand.Intn(100)
+		b := rand.Intn(100)
+		_ = phpTcpClient.Call("php_tcp/add", Params{a, b}, result, false)
+		fmt.Printf("[tcp] Go asked:\"%d+%d=?\"; PHP answered:\"%d\"\n", a, b, *result)
 
-		err = javaTcpClient.Call("java_tcp/add", Params{2, 3}, result, false)
-		fmt.Println(err) // nil
-		fmt.Println(*result) // 5
+		a = rand.Intn(100)
+		b = rand.Intn(100)
+		_ = phpHttpClient.Call("php_http/add", Params{a, b}, result, false)
+		fmt.Printf("[http] Go asked:\"%d+%d=?\"; PHP answered:\"%d\"\n", a, b, *result)
 
-		err = javaHttpClient.Call("java_http/add", Params{2, 3}, result, false)
-		fmt.Println(err) // nil
-		fmt.Println(*result) // 5
-		time.Sleep(time.Duration(1) * time.Second)
-    }
+		a = rand.Intn(100)
+		b = rand.Intn(100)
+		_ = javaTcpClient.Call("java_tcp/add", Params{a, b}, result, false)
+		fmt.Printf("[tcp] Go asked:\"%d+%d=?\"; Java answered:\"%d\"\n", a, b, *result)
+
+		a = rand.Intn(100)
+		b = rand.Intn(100)
+		_ = javaHttpClient.Call("java_http/add", Params{a, b}, result, false)
+		fmt.Printf("[http] Go asked:\"%d+%d=?\"; Java answered:\"%d\"\n", a, b, *result)
+		return nil
+	})
+	task.AddTask("tk", tk)
+	task.StartTask()
+	defer task.StopTask()
+	select {}
 }
