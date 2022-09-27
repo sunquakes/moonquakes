@@ -5,13 +5,13 @@ namespace App\JsonRpc;
 
 use Hyperf\RpcClient\AbstractServiceClient;
 
-class GoTcpServiceConsumer extends AbstractServiceClient implements GoServiceInterface
+class JavaTcpServiceConsumer extends AbstractServiceClient implements JavaServiceInterface
 {
-    protected string $serviceName = 'GoTcpService';
+    protected string $serviceName = 'JavaTcpService';
 
     protected string $protocol = 'jsonrpc';
 
-    public function Add(int $a, int $b): int
+    public function add(int $a, int $b): int
     {
         return $this->__request(__FUNCTION__, compact('a', 'b'));
     }

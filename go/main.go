@@ -8,9 +8,9 @@ import (
 
 func main() {
     go func() {
-        s, _ := jsonrpc4go.NewServer("tcp", "127.0.0.1", "3601")
-        s.Register(new(GoTcp))
-        s.Start()
+       s, _ := jsonrpc4go.NewServer("tcp", "127.0.0.1", "3601")
+       s.Register(new(GoTcp))
+       s.Start()
     }()
     go func() {
         s, _ := jsonrpc4go.NewServer("http", "127.0.0.1", "3602")
@@ -32,12 +32,11 @@ func main() {
 		fmt.Println(err) // nil
 		fmt.Println(*result) // 3
 
-		err = javaTcpClient.Call("JavaTcp/add", Params{2, 3}, result, false)
+		err = javaTcpClient.Call("java_tcp/add", Params{2, 3}, result, false)
 		fmt.Println(err) // nil
 		fmt.Println(*result) // 5
-		time.Sleep(time.Duration(1) * time.Second)
 
-		err = javaHttpClient.Call("JavaHttp/add", Params{2, 3}, result, false)
+		err = javaHttpClient.Call("java_http/add", Params{2, 3}, result, false)
 		fmt.Println(err) // nil
 		fmt.Println(*result) // 5
 		time.Sleep(time.Duration(1) * time.Second)

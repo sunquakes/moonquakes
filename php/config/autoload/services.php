@@ -22,6 +22,18 @@ return [
             'nodes' => [
                 ['host' => '127.0.0.1', 'port' => 3602],
             ],
+        ],
+        [
+            'name' => 'JavaTcpService',
+            'nodes' => [
+                ['host' => '127.0.0.1', 'port' => 3201],
+            ],
+        ],
+        [
+            'name' => 'JavaHttpService',
+            'nodes' => [
+                ['host' => '127.0.0.1', 'port' => 3202],
+            ],
         ]
     ],
 ];
