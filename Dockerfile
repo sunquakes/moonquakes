@@ -2,6 +2,7 @@ FROM golang:1.18.6 AS gobuilder
 WORKDIR /home/go
 COPY ./go /home/go
 RUN go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct \
+    && go env -w CGO_ENABLED=0 \
     && go build .
 
 FROM maven:3.8-jdk-8 AS mvnbuilder
@@ -56,10 +57,10 @@ RUN set -ex \
     && echo -e "\033[42;37m Build Completed :).\033[0m\n" \
     && echo $'\
     #!/bin/bash \n\
-    /usr/local/java/bin/java -jar /opt/java-http.jar & \
-    /usr/local/java/bin/java -jar /opt/java-tcp.jar & \
-    /opt/go & \
-    php /opt/www/bin/hyperf.php start & \
+    java -jar /opt/java-http.jar & \n\
+    java -jar /opt/java-tcp.jar & \n\
+    /opt/go & \n\
+    php /opt/php/bin/hyperf.php start \
     ' > /opt/start.sh
 
 WORKDIR /opt/php
