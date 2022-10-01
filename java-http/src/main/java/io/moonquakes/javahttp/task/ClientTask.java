@@ -25,7 +25,7 @@ public class ClientTask {
             int a = (int) (Math.random() * 100);
             int b = (int) (Math.random() * 100);
             int res = phpHttpClient.add(a, b);
-            log.info(String.format("[tcp] Java asked:\"%d+%d=?\"; PHP answered:\"%d\"", a, b, res));
+            log.info(String.format("[http] Java asked:\"%d+%d=?\"; PHP answered:\"%d\"", a, b, res));
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         }
@@ -33,7 +33,7 @@ public class ClientTask {
             int a = (int) (Math.random() * 100);
             int b = (int) (Math.random() * 100);
             int res = goHttpClient.Add(a, b);
-            log.info(String.format("[tcp] Java asked:\"%d+%d=?\"; Go answered:\"%d\"", a, b, res));
+            log.info(String.format("[http] Java asked:\"%d+%d=?\"; Go answered:\"%d\"", a, b, res));
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         }
