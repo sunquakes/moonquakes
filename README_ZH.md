@@ -1,4 +1,4 @@
-[English](README.md) | 🇨🇳中文
+[English](php/README.md) | 🇨🇳中文
 # moonquakes
 
 ## 🚀 说明
