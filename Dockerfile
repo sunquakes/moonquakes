@@ -1,11 +1,15 @@
 FROM golang:1.18.6 AS gobuilder
 WORKDIR /home/go
 COPY ./go /home/go
+
+# build go
 RUN go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct \
     && go env -w CGO_ENABLED=0 \
     && go build .
 
 FROM maven:3.8-jdk-8 AS mvnbuilder
+
+# package java-http
 WORKDIR /home/java-http
 COPY ./java-http /home/java-http
 RUN sed -i "s|<mirrors>|& \
@@ -17,6 +21,7 @@ RUN sed -i "s|<mirrors>|& \
     </mirror>|g" /usr/share/maven/conf/settings.xml \
     && mvn clean package -U
 
+# package java-http
 WORKDIR /home/java-tcp
 COPY ./java-tcp /home/java-tcp
 RUN mvn clean package -U

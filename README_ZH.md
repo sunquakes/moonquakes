@@ -13,5 +13,8 @@ docker pull sunquakes/moonquakes:latest
 # 启动docker容器
 docker run -itd --name moonquakes sunquakes/moonquakes:latest /bin/bash
 # 容器完全启动后，查看容器日志
-docker logs moonquakes
+docker logs moonquakes -f
 ```
+
+## 🖼️ Preview
+![alt 预览](preview.gif)

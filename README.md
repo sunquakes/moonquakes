@@ -13,5 +13,8 @@ docker pull sunquakes/moonquakes:latest
 # Run docker container.
 docker run -itd --name moonquakes sunquakes/moonquakes:latest /bin/bash
 # View container logs after the container started.
-docker logs moonquakes
+docker logs moonquakes -f
 ```
+
+## 🖼️ Preview
+![alt 预览](preview.gif)
