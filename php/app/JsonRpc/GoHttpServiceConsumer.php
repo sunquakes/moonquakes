@@ -11,8 +11,8 @@ class GoHttpServiceConsumer extends AbstractServiceClient implements GoServiceIn
 
     protected string $protocol = 'jsonrpc-http';
 
-    public function Add(int $a, int $b): int
+    public function Add(array $args): array
     {
-        return $this->__request(__FUNCTION__, compact('a', 'b'));
+        return $this->__request(__FUNCTION__, compact('args'));
     }
 }

@@ -8,8 +8,10 @@ use Hyperf\RpcServer\Annotation\RpcService;
 #[RpcService(name: "PhpTcpService", protocol: "jsonrpc-tcp", server: "jsonrpc-tcp")]
 class PhpTcpService implements PhpServiceInterface
 {
-    public function add(int $a, int $b): int
+    public function add(array $args): array
     {
-        return $a + $b;
+        $result = [];
+        $result["c"] = $args["a"] + $args["b"];
+        return $result;
     }
 }

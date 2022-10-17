@@ -16,5 +16,5 @@ docker run -itd --name moonquakes sunquakes/moonquakes:latest /bin/bash
 docker logs moonquakes -f
 ```
 
-## 🖼️ Preview
+## 🖼️ 预览
 ![alt 预览](preview.gif)

@@ -17,4 +17,4 @@ docker logs moonquakes -f
 ```
 
 ## 🖼️ Preview
-![alt 预览](preview.gif)
+![alt preview](preview.gif)

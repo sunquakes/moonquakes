@@ -37,16 +37,16 @@ class ClientTask
         try {
             $a = rand(0, 100);
             $b = rand(0, 100);
-            $result = $this->goHttpServiceConsumer->Add($a, $b);
-            $this->logger->info(sprintf("[http] PHP asked:\"%d+%d=?\"; Go answered:\"%d\"", $a, $b, $result));
+            $result = $this->goHttpServiceConsumer->Add(["a" => $a, "b" => $b]);
+            $this->logger->info(sprintf("[http] PHP asked:\"%d+%d=?\"; Go answered:\"%d\"", $a, $b, $result["c"]));
         } catch (Exception $e) {
             $this->logger->info($e->getMessage());
         }
         try {
             $a = rand(0, 100);
             $b = rand(0, 100);
-            $result = $this->goTcpServiceConsumer->Add($a, $b);
-            $this->logger->info(sprintf("[tcp] PHP asked:\"%d+%d=?\"; Go answered:\"%d\"", $a, $b, $result));
+            $result = $this->goTcpServiceConsumer->Add(["a" => $a, "b" => $b]);
+            $this->logger->info(sprintf("[tcp] PHP asked:\"%d+%d=?\"; Go answered:\"%d\"", $a, $b, $result["c"]));
         } catch (Exception $e) {
             $this->logger->info($e->getMessage());
         }
@@ -55,16 +55,16 @@ class ClientTask
         try {
             $a = rand(0, 100);
             $b = rand(0, 100);
-            $result = $this->javaHttpServiceConsumer->add($a, $b);
-            $this->logger->info(sprintf("[http] PHP asked:\"%d+%d=?\"; Java answered:\"%d\"", $a, $b, $result));
+            $result = $this->javaHttpServiceConsumer->add(["a" => $a, "b" => $b]);
+            $this->logger->info(sprintf("[http] PHP asked:\"%d+%d=?\"; Java answered:\"%d\"", $a, $b, $result["c"]));
         } catch (Exception $e) {
             $this->logger->info($e->getMessage());
         }
         try {
             $a = rand(0, 100);
             $b = rand(0, 100);
-            $result = $this->javaTcpServiceConsumer->add($a, $b);
-            $this->logger->info(sprintf("[tcp] PHP asked:\"%d+%d=?\"; Java answered:\"%d\"", $a, $b, $result));
+            $result = $this->javaTcpServiceConsumer->add(["a" => $a, "b" => $b]);
+            $this->logger->info(sprintf("[tcp] PHP asked:\"%d+%d=?\"; Java answered:\"%d\"", $a, $b, $result["c"]));
         } catch (Exception $e) {
             $this->logger->info($e->getMessage());
         }

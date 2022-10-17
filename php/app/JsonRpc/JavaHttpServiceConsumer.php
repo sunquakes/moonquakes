@@ -11,8 +11,8 @@ class JavaHttpServiceConsumer extends AbstractServiceClient implements JavaServi
 
     protected string $protocol = 'jsonrpc-http';
 
-    public function add(int $a, int $b): int
+    public function add(array $args): array
     {
-        return $this->__request(__FUNCTION__, compact('a', 'b'));
+        return $this->__request(__FUNCTION__, compact('args'));
     }
 }

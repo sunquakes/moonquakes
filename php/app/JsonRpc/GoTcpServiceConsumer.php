@@ -11,8 +11,8 @@ class GoTcpServiceConsumer extends AbstractServiceClient implements GoServiceInt
 
     protected string $protocol = 'jsonrpc';
 
-    public function Add(int $a, int $b): int
+    public function Add(array $args): array
     {
-        return $this->__request(__FUNCTION__, compact('a', 'b'));
+        return $this->__request(__FUNCTION__, compact('args'));
     }
 }

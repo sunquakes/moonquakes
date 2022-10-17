@@ -4,5 +4,5 @@ namespace App\JsonRpc;
 
 interface PhpServiceInterface
 {
-    public function add(int $a, int $b): int;
+    public function add(array $args): array;
 }
