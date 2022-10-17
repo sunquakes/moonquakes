@@ -3,7 +3,8 @@ WORKDIR /home/go
 COPY ./go /home/go
 
 # build go
-RUN go env -w CGO_ENABLED=0 \
+RUN go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct \
+    && go env -w CGO_ENABLED=0 \
     && go build .
 
 FROM maven:3.8-jdk-8 AS mvnbuilder
@@ -11,7 +12,14 @@ FROM maven:3.8-jdk-8 AS mvnbuilder
 # package java-http
 WORKDIR /home/java-http
 COPY ./java-http /home/java-http
-RUN mvn clean package -U
+RUN sed -i "s|<mirrors>|& \
+    <mirror>\n \
+        <id>aliyunmaven</id>\n \
+        <mirrorOf>*</mirrorOf>\n \
+        <name>阿里云公共仓库</name>\n \
+        <url>https://maven.aliyun.com/repository/public</url>\n \
+    </mirror>|g" /usr/share/maven/conf/settings.xml \
+    && mvn clean package -U
 
 # package java-http
 WORKDIR /home/java-tcp
@@ -62,7 +70,8 @@ RUN set -ex \
 
 WORKDIR /opt/php
 COPY ./php /opt/php
-RUN composer install --no-dev -o  \
+RUN composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/ \
+    && composer install --no-dev -o  \
     && php bin/hyperf.php
 
 COPY --from=gobuilder /home/go/go /opt/
