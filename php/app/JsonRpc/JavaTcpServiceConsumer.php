@@ -7,7 +7,7 @@ use Hyperf\RpcClient\AbstractServiceClient;
 
 class JavaTcpServiceConsumer extends AbstractServiceClient implements JavaServiceInterface
 {
-    protected string $serviceName = 'JavaTcpService';
+    protected string $serviceName = 'java_tcp';
 
     protected string $protocol = 'jsonrpc';
 

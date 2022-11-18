@@ -27,7 +27,8 @@
         "hyperf/json-rpc": "~3.0.0",
         "hyperf/rpc": "~3.0.0",
         "hyperf/rpc-client": "~3.0.0",
-        "hyperf/rpc-server": "~3.0.0"
+        "hyperf/rpc-server": "~3.0.0",
+        "hyperf/service-governance-consul": "~3.0.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",

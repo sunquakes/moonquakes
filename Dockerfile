@@ -18,8 +18,8 @@ WORKDIR /home/java-tcp
 COPY ./java-tcp /home/java-tcp
 RUN mvn clean package -U
 
-FROM gu:latest
-LABEL maintainer="sunquakes<sunquakes@outlook.com>" version="1.0" license="MIT" app.name="moonquakes"
+FROM sunquakes/gu-consul:latest
+LABEL maintainer="sunquakes<sunquakes@outlook.com>" version="1.0" license="MIT" app.name="moonquakes-consul"
 
 ##
 # ---------- env settings ----------

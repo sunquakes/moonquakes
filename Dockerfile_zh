@@ -12,22 +12,15 @@ FROM maven:3.8-jdk-8 AS mvnbuilder
 # package java-http
 WORKDIR /home/java-http
 COPY ./java-http /home/java-http
-RUN sed -i "s|<mirrors>|& \
-    <mirror>\n \
-        <id>aliyunmaven</id>\n \
-        <mirrorOf>*</mirrorOf>\n \
-        <name>阿里云公共仓库</name>\n \
-        <url>https://maven.aliyun.com/repository/public</url>\n \
-    </mirror>|g" /usr/share/maven/conf/settings.xml \
-    && mvn clean package -U
+RUN mvn clean package -U
 
 # package java-http
 WORKDIR /home/java-tcp
 COPY ./java-tcp /home/java-tcp
 RUN mvn clean package -U
 
-FROM gu:latest
-LABEL maintainer="sunquakes<sunquakes@outlook.com>" version="1.0" license="MIT" app.name="moonquakes"
+FROM sunquakes/gu-consul:latest
+LABEL maintainer="sunquakes<sunquakes@outlook.com>" version="1.0" license="MIT" app.name="moonquakes-consul"
 
 ##
 # ---------- env settings ----------

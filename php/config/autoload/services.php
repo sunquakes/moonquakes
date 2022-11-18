@@ -10,6 +10,10 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 return [
+    'enable' => [
+        'discovery' => true,
+        'register' => true,
+    ],
     'consumers' => [
         [
             'name' => 'GoTcpService',
@@ -24,16 +28,24 @@ return [
             ],
         ],
         [
-            'name' => 'JavaTcpService',
-            'nodes' => [
-                ['host' => '127.0.0.1', 'port' => 3201],
+            'name' => 'java_tcp',
+            'registry' => [
+                'protocol' => 'consul',
+                'address' => 'http://127.0.0.1:8500',
             ],
         ],
         [
-            'name' => 'JavaHttpService',
-            'nodes' => [
-                ['host' => '127.0.0.1', 'port' => 3202],
+            'name' => 'java_http',
+            'registry' => [
+                'protocol' => 'consul',
+                'address' => 'http://127.0.0.1:8500',
             ],
+        ]
+    ],
+    'drivers' => [
+        'consul' => [
+            'uri' => 'http://localhost:8500',
+            'token' => '',
         ]
     ],
 ];
