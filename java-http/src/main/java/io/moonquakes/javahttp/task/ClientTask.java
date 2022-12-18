@@ -5,20 +5,21 @@ import io.moonquakes.javahttp.client.IPhpHttpClient;
 import io.moonquakes.javahttp.dto.ArgsDto;
 import io.moonquakes.javahttp.dto.ResultDto;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 @Slf4j
 @EnableScheduling
 @Component
 public class ClientTask {
 
-    @Autowired(required = false)
+    @Resource
     private IPhpHttpClient phpHttpClient;
 
-    @Autowired(required = false)
+    @Resource
     private IGoHttpClient goHttpClient;
 
     @Scheduled(fixedDelay = 10000)
