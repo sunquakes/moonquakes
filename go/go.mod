@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/beego/beego/v2 v2.0.5
-	github.com/sunquakes/jsonrpc4go v1.6.1
+	github.com/sunquakes/jsonrpc4go v1.6.2
 )
 
 // replace github.com/sunquakes/jsonrpc4go => /Users/ruixinglong/GolandProjects/jsonrpc4go

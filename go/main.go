@@ -12,14 +12,14 @@ import (
 func main() {
 	dc, _ := consul.NewConsul("http://localhost:8500?check=true&instanceId=1")
 	go func() {
-		s, _ := jsonrpc4go.NewServer("tcp", "", 3601)
-		s.SetDiscovery(dc)
+		s, _ := jsonrpc4go.NewServer("tcp", 3601)
+		s.SetDiscovery(dc, "")
 		s.Register(new(GoTcp))
 		s.Start()
 	}()
 	go func() {
-		s, _ := jsonrpc4go.NewServer("http", "", 3602)
-		s.SetDiscovery(dc)
+		s, _ := jsonrpc4go.NewServer("http", 3602)
+		s.SetDiscovery(dc, "")
 		s.Register(new(GoHttp))
 		s.Start()
 	}()
