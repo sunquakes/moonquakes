@@ -9,11 +9,11 @@ In moonquakes, the java framework is springboot, it use [jsonrpc4j](https://gith
 ## 📖 Getting started
 ```shell
 # Pull demo docker images from dockerhub.
-docker pull sunquakes/moonquakes:latest
+docker pull sunquakes/moonquakes-nacos:latest
 # Run docker container.
-docker run -itd --name moonquakes sunquakes/moonquakes:latest /bin/bash
+docker run -itd --name moonquakes-nacos sunquakes/moonquakes-nacos:latest /bin/bash
 # View container logs after the container started.
-docker logs moonquakes -f
+docker logs moonquakes-nacos -f
 ```
 
 ## 🖼️ Preview

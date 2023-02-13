@@ -55,7 +55,7 @@ RUN set -ex \
     && echo $'\
     #!/bin/bash \n\
     /home/nacos/bin/startup.sh -m standalone \n\
-    echo \"The nacos server is starting, please wait 60 seconds...\" \n\
+    echo \"The nacos server is starting, please wait 120 seconds...\" \n\
     sleep 120 \n\
     java -jar /opt/java-http.jar & \n\
     java -jar /opt/java-tcp.jar & \n\

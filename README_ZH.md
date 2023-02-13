@@ -9,11 +9,11 @@ Moonquakes是一个演示项目。它展示了如何在一些web框架中使用j
 ## 📖 开始演示
 ```shell
 # 从dockerhub拉取镜像
-docker pull sunquakes/moonquakes:latest
+docker pull sunquakes/moonquakes-nacos:latest
 # 启动docker容器
-docker run -itd --name moonquakes sunquakes/moonquakes:latest /bin/bash
+docker run -itd --name moonquakes-nacos sunquakes/moonquakes-nacos:latest /bin/bash
 # 容器完全启动后，查看容器日志
-docker logs moonquakes -f
+docker logs moonquakes-nacos -f
 ```
 
 ## 🖼️ 预览
