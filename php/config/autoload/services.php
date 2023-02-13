@@ -16,36 +16,51 @@ return [
     ],
     'consumers' => [
         [
-            'name' => 'GoTcpService',
-            'nodes' => [
-                ['host' => '127.0.0.1', 'port' => 3601],
+            'name' => 'GoTcp',
+            'registry' => [
+                'protocol' => 'nacos',
+                'address' => 'http://127.0.0.1:8848',
             ],
         ],
         [
-            'name' => 'GoHttpService',
-            'nodes' => [
-                ['host' => '127.0.0.1', 'port' => 3602],
+            'name' => 'GoHttp',
+            'registry' => [
+                'protocol' => 'nacos',
+                'address' => 'http://127.0.0.1:8848',
             ],
         ],
         [
             'name' => 'java_tcp',
             'registry' => [
-                'protocol' => 'consul',
-                'address' => 'http://127.0.0.1:8500',
+                'protocol' => 'nacos',
+                'address' => 'http://127.0.0.1:8848',
             ],
         ],
         [
             'name' => 'java_http',
             'registry' => [
-                'protocol' => 'consul',
-                'address' => 'http://127.0.0.1:8500',
+                'protocol' => 'nacos',
+                'address' => 'http://127.0.0.1:8848',
             ],
         ]
     ],
     'drivers' => [
-        'consul' => [
-            'uri' => 'http://localhost:8500',
-            'token' => '',
-        ]
+        'nacos' => [
+            // nacos server url like https://nacos.hyperf.io, Priority is higher than host:port
+            // 'url' => '',
+            // The nacos host info
+            'host' => '127.0.0.1',
+            'port' => 8848,
+            // The nacos account info
+            'username' => 'nacos',
+            'password' => 'nacos',
+            'guzzle' => [
+                'config' => null,
+            ],
+            'ephemeral' => false,
+            'group_name' => null,
+            'namespace_id' => null,
+            'heartbeat' => 5,
+        ],
     ],
 ];

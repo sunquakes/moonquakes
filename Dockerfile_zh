@@ -19,8 +19,8 @@ WORKDIR /home/java-tcp
 COPY ./java-tcp /home/java-tcp
 RUN mvn clean package -U
 
-FROM sunquakes/gu-consul:latest
-LABEL maintainer="sunquakes<sunquakes@outlook.com>" version="1.0" license="MIT" app.name="moonquakes-consul"
+FROM sunquakes/gu-nacos:latest
+LABEL maintainer="sunquakes<sunquakes@outlook.com>" version="1.0" license="MIT" app.name="moonquakes-nacos"
 
 ##
 # ---------- env settings ----------
@@ -55,8 +55,9 @@ RUN set -ex \
     && echo -e "\033[42;37m Build Completed :).\033[0m\n" \
     && echo $'\
     #!/bin/bash \n\
-    consul agent -dev -ui -node=gu-consul -client=0.0.0.0 & \n\
-    sleep 30 \n\
+    /home/nacos/bin/startup.sh -m standalone \n\
+    echo \"The nacos server is starting, please wait 120 seconds...\" \n\
+    sleep 120 \n\
     java -jar /opt/java-http.jar & \n\
     java -jar /opt/java-tcp.jar & \n\
     /opt/go & \n\

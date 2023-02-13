@@ -5,7 +5,7 @@ namespace App\JsonRpc;
 
 use Hyperf\RpcServer\Annotation\RpcService;
 
-#[RpcService(name: "php_tcp", protocol: "jsonrpc", server: "jsonrpc-tcp", publishTo: "consul")]
+#[RpcService(name: "php_tcp", protocol: "jsonrpc", server: "jsonrpc-tcp", publishTo: "nacos")]
 class PhpTcpService implements PhpServiceInterface
 {
     public function add(array $args): array
