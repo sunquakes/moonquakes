@@ -57,7 +57,6 @@ return [
             'guzzle' => [
                 'config' => null,
             ],
-            'ephemeral' => false,
             'group_name' => null,
             'namespace_id' => null,
             'heartbeat' => 5,

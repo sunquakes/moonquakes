@@ -4,10 +4,8 @@ go 1.18
 
 require (
 	github.com/beego/beego/v2 v2.0.5
-	github.com/sunquakes/jsonrpc4go v1.6.4
+	github.com/sunquakes/jsonrpc4go v1.6.5
 )
-
-// replace github.com/sunquakes/jsonrpc4go => /Users/ruixinglong/GolandProjects/jsonrpc4go
 
 require (
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
