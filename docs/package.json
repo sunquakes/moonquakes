@@ -1,0 +1,17 @@
+{
+  "name": "moonquakes-doc",
+  "version": "1.0.0",
+  "description": "The docs of the moonquakes project.",
+  "main": "index.js",
+  "repository": "moonquakes.io",
+  "author": "Robert",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "deploy": "bash deploy.sh"
+  },
+  "devDependencies": {
+    "vuepress": "^1.9.9"
+  }
+}
