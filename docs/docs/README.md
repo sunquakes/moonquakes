@@ -2,7 +2,7 @@
 home: true
 heroImage: /logo.jpg
 actionText: Quick Start →
-actionLink: /zh/guide/
+actionLink: /guide/
 features:
 - title: Cross-Language 
   details: Support php/java/go now, support more language in the future.

@@ -14,7 +14,18 @@ export default defineConfig({
   themeConfig: {
     repo: "sunquakes/moonquakes",
     editLinks: true,
-    docsDir: "packages/docs/docs"
+    docsDir: "packages/docs/docs",
+    nav: [
+      {text: 'Guide', link: '/guide/golang'}
+    ],
+    sidebar: {
+      '/guide/': [
+        '',
+        'golang',
+        'java',
+        'php'
+      ]
+    }
   },
   locales: {
     // The key is the path for the locale to be nested under.
