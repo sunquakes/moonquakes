@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /logo.jpg
+heroImage: /images/logo.png
 actionText: Quick Start →
 actionLink: /guide/
 features:

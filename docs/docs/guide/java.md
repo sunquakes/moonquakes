@@ -2,6 +2,9 @@
 title: Java
 lang: en-US
 ---
+## Introduction
+Moonquakes's java part is a maven repository, and only support spring framework. 
+
 ## Installing
 - maven
 ```xml
@@ -17,7 +20,6 @@ lang: en-US
 // https://mvnrepository.com/artifact/com.sunquakes/jsonrpc4j
 implementation group: 'com.sunquakes', name: 'jsonrpc4j', version: '2.1.1-SNAPSHOT'
 ```
-
 
 ## Getting started
 ### step1. Configuring base packages with @JsonRpcScan to scan service and client class
@@ -98,9 +100,8 @@ public class JsonRpcTest {
 }
 ```
 
-## More Feature
-### Service Discovery
-- Consul
+## Service registration & discovery
+### consul
 ```properties
 # The service hostname, not required, if the default node ip is used, it can be ignored.
 jsonrpc.discovery.hostname=192.168.39.1 
@@ -114,7 +115,7 @@ jsonrpc.discovery.url=http://127.0.0.1:8500?instanceId=2&check=true&checkInterva
 # The consul driver
 jsonrpc.discovery.driver-name=com.sunquakes.jsonrpc4j.discovery.Consul
 ```
-- Nacos
+### nacos
 ```properties
 # The service hostname, not required, if the default node ip is used, it can be ignored.
 jsonrpc.discovery.hostname=192.168.39.1 

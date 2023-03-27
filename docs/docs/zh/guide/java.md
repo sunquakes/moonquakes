@@ -2,6 +2,9 @@
 title: Java
 lang: zh-CN
 ---
+## 介绍
+moonquakes的java部分是一个maven包，目前只支持spring框架。
+
 ## 安装
 - maven
 ```xml
@@ -97,9 +100,8 @@ public class JsonRpcTest {
 }
 ```
 
-## 更多特性
-### 服务发现
-- Consul
+## 服务注册和发现
+### consul
 ```properties
 # 主机名，非必填项，如果用默认主机ip，此项可以不配置
 jsonrpc.discovery.hostname=192.168.39.1 
@@ -113,7 +115,7 @@ jsonrpc.discovery.url=http://127.0.0.1:8500?instanceId=2&check=true&checkInterva
 # consul驱动
 jsonrpc.discovery.driver-name=com.sunquakes.jsonrpc4j.discovery.Consul
 ```
-- Nacos
+### nacos
 ```properties
 # 主机名，非必填项，如果用默认主机ip，此项可以不配置
 jsonrpc.discovery.hostname=192.168.39.1 

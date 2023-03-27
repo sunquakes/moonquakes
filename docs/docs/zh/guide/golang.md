@@ -1,11 +1,12 @@
 ---
-title: Golang 
+title: Golang
 lang: zh-CN
 ---
 ## 安装
 ```
 go get -u github.com/sunquakes/jsonrpc4go
 ```
+
 ## 开始使用
 - 服务端代码
 ```go

@@ -4,10 +4,16 @@ export default defineConfig({
   base: "/moonquakes/",
   title: "moonquakes",
   description: "A rpc framework, for lightweight cross-language services development.",
+  head: [
+    [
+      'link', { rel: 'icon', href: '/images/logo.png' }
+    ]
+  ],
   /**
    * Type is `DefaultThemeConfig`
    */
   themeConfig: {
+    logo: "/images/logo.png",
     repo: "sunquakes/moonquakes",
     editLinks: true,
     locales: {
