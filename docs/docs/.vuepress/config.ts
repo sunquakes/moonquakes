@@ -1,7 +1,6 @@
 import {defineConfig} from "vuepress/config";
 
 export default defineConfig({
-  base: "/moonquakes/",
   title: "moonquakes",
   description: "A rpc framework, for lightweight cross-language services development.",
   head: [
