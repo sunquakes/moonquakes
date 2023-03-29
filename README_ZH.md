@@ -16,7 +16,7 @@ Moonquakes是一个演示项目。它展示了如何在一些web框架中使用j
 在moonquakes中，java框架用的是springboot，它使用 [jsonrpc4j](https://github.com/sunquakes/jsonrpc4j) 与go和php框架通信；php框架是 [Hyperf](https://github.com/hyperf/hyperf) ，它有自己的 [jsonrpc组件](https://www.hyperf.wiki/3.0/#/en/json-rpc) 来与go和java框架通信；go框架使用 [jsonrpc4go](https://github.com/sunquakes/jsonrpc4go) 与java和php框架通信。
 
 ## 文档 
-查看 [moonquakes.io](https://moonquakes.io).
+查看 [moonquakes.io](https://moonquakes.io/zh/).
 
 ## 开始演示
 ### 直接使用ip
