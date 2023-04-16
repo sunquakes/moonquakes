@@ -1,19 +1,23 @@
 ---
-title: Golang
+title: Golang 
 lang: zh-CN
 ---
+
 ## 安装
+
 ```
 go get -u github.com/sunquakes/jsonrpc4go
 ```
 
 ## 开始使用
+
 - 服务端代码
+
 ```go
 package main
 
 import (
-    "github.com/sunquakes/jsonrpc4go"
+	"github.com/sunquakes/jsonrpc4go"
 )
 
 type IntRpc struct{}
@@ -37,7 +41,9 @@ func main() {
 	s.Start()
 }
 ```
+
 - 客户端代码
+
 ```go
 package main
 
@@ -63,44 +69,114 @@ func main() {
 	err := c.Call("Add", Params{1, 6}, result, false)
 	// 发送的数据格式: {"id":"1604283212", "jsonrpc":"2.0", "method":"IntRpc/Add", "params":{"a":1,"b":6}}
 	// 接收的数据格式: {"id":"1604283212", "jsonrpc":"2.0", "result":7}
-	fmt.Println(err) // nil
+	fmt.Println(err)     // nil
 	fmt.Println(*result) // 7
 }
 ```
+
+## 路由
+
+### 规则
+
+路由由3部分组成，第一部分是struct名，中间是分隔符/，最后是struct的方法名。
+
+### 如何定义服务的路由
+
+- 声明一个struct，名为IntRpc
+
+```go
+package main
+
+type IntRpc struct{}
+```
+
+- 声明struct的方法Add
+
+```go
+package main
+
+func (i *IntRpc) Add(params *Params, result *Result) error {
+	a := params.A + params.B
+	*result = interface{}(a).(Result)
+	return nil
+}
+```
+
+- 启动服务端并注册struct后，可以通过new一个客户端去请求服务端，每个客户端映射一个服务
+
+```go
+c, _ := jsonrpc4go.NewClient("IntRpc", "http", "127.0.0.1:3232") // 第一个参数是struct名
+err := c.Call("Add", Params{1, 6}, result, false) // 第一个参数是struct的方法名
+```
+
+- 客户端请求服务端的数据
+
+```json
+{
+  "id": "1604283212",
+  "jsonrpc": "2.0",
+  "method": "IntRpc/Add",
+  "params": {
+    "a": 1,
+    "b": 6
+  }
+}
+```
+
+- 服务端响应客户端的数据
+
+```json
+{
+  "id": "1604283212",
+  "jsonrpc": "2.0",
+  "result": 7
+}
+```
+
 ## 更多特性
+
 - tcp协议
+
 ```go
 s, _ := jsonrpc4go.NewServer("tcp", 3232) // tcp协议
 
 c, _ := jsonrpc4go.NewClient("IntRpc", "tcp", "127.0.0.1:3232") // tcp协议
 ```
+
 - 钩子 (在代码's.Start()'前添加下面的代码)
+
 ```go
 // 在方法前执行的钩子方法
-s.SetBeforeFunc(func(id interface{}, method string, params interface{}) error {
-    // 如果方法返回error类型，服务端停止执行并返回错误信息到客户端
-    // 例：return errors.New("Custom Error")
-    return nil
+s.SetBeforeFunc(func (id interface{}, method string, params interface{}) error {
+// 如果方法返回error类型，服务端停止执行并返回错误信息到客户端
+// 例：return errors.New("Custom Error")
+return nil
 })
 // 在方法后执行的钩子方法
-s.SetAfterFunc(func(id interface{}, method string, result interface{}) error {
-    // 如果方法返回error类型，服务端停止执行并返回错误信息到客户端
-    // 例：return errors.New("Custom Error")
-    return nil
+s.SetAfterFunc(func (id interface{}, method string, result interface{}) error {
+// 如果方法返回error类型，服务端停止执行并返回错误信息到客户端
+// 例：return errors.New("Custom Error")
+return nil
 })
 ```
+
 - 限流 (在代码's.Start()'前添加下面的代码)
+
 ```go
 s.SetRateLimit(20, 10) // 最大并发数为10, 最大请求数为每秒20个
 ```
+
 - tcp协议时自定义请求结束符
+
 ```go
 // 在代码's.Start()'前添加下面的代码
 s.SetOptions(server.TcpOptions{"aaaaaa", nil}) // 仅tcp协议生效
 // 在代码'c.Call()'或'c.BatchCall()'前添加下面的代码
 c.SetOptions(client.TcpOptions{"aaaaaa", nil}) // 仅tcp协议生效
 ```
+
 - 通知请求
+
 ```go
 // 通知
 result2 := new(Result2)
@@ -110,7 +186,9 @@ err2 := c.Call("Add2", Params{1, 6}, result2, true)
 fmt.Println(err2) // nil
 fmt.Println(*result2) // {7}
 ```
+
 - 批量请求
+
 ```go
 // 批量请求
 result3 := new(Result)
@@ -122,16 +200,20 @@ c.BatchCall()
 // 接收的数据格式: [{"id":"1604283212","jsonrpc":"2.0","error":{"code":-32601,"message":"Method not found","data":null}},{"id":"1604283212","jsonrpc":"2.0","result":5}]
 fmt.Println((*err3).Error()) // Method not found
 fmt.Println(*result3) // 0
-fmt.Println(*err4) // nil
+fmt.Println(*err4)    // nil
 fmt.Println(*result4) // 5
 ```
+
 - 用户端负载均衡
+
 ```go
 c, _ := jsonrpc4go.NewClient("IntRpc", "tcp", "127.0.0.1:3232,127.0.0.1:3233,127.0.0.1:3234")
 ```
 
 ## 服务注册和发现
+
 ### Consul
+
 ```go
 /**
  * check: true或者false, 开启健康检查
@@ -151,7 +233,9 @@ s.Start()
 // 在客户端设置
 c, _ := jsonrpc4go.NewClient("IntRpc", "tcp", dc)
 ```
+
 ### Nacos
+
 ```go
 dc, _ := nacos.NewNacos("http://127.0.0.1:8849")
 

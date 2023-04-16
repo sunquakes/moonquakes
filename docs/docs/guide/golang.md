@@ -2,17 +2,22 @@
 title: Golang 
 lang: en-US
 ---
+
 ## Installing
+
 ```
 go get -u github.com/sunquakes/jsonrpc4go
 ```
+
 ## Getting started
+
 - Server
+
 ```go
 package main
 
 import (
-    "github.com/sunquakes/jsonrpc4go"
+	"github.com/sunquakes/jsonrpc4go"
 )
 
 type IntRpc struct{}
@@ -36,7 +41,9 @@ func main() {
 	s.Start()
 }
 ```
+
 - Client
+
 ```go
 package main
 
@@ -62,44 +69,116 @@ func main() {
 	err := c.Call("Add", Params{1, 6}, result, false)
 	// data sent: {"id":"1604283212", "jsonrpc":"2.0", "method":"IntRpc/Add", "params":{"a":1,"b":6}}
 	// data received: {"id":"1604283212", "jsonrpc":"2.0", "result":7}
-	fmt.Println(err) // nil
+	fmt.Println(err)     // nil
 	fmt.Println(*result) // 7
 }
 ```
+
+## Router
+
+### Rules
+
+The are three part in the routing, the first part is the name of the struct. The second part is the separator /, the
+last part is the name of the struct method.
+
+### How to define the routing of the service.
+
+- Declare the service struct, then the first part is IntRpc.
+
+```go
+package main
+
+type IntRpc struct{}
+```
+
+- Declare the struct function.
+
+```go
+package main
+
+func (i *IntRpc) Add(params *Params, result *Result) error {
+	a := params.A + params.B
+	*result = interface{}(a).(Result)
+	return nil
+}
+```
+
+- After start the server and register the struct, you can new a client to request jsonrpc2.0 data to the server, one
+  client map one service.
+
+```go
+c, _ := jsonrpc4go.NewClient("IntRpc", "http", "127.0.0.1:3232") // The first paramter is the service struct name.
+err := c.Call("Add", Params{1, 6}, result, false) // The first paramter is the service struct function name.
+```
+
+- The data of the client request to the server.
+
+```json
+{
+  "id": "1604283212",
+  "jsonrpc": "2.0",
+  "method": "IntRpc/Add",
+  "params": {
+    "a": 1,
+    "b": 6
+  }
+}
+```
+
+- The data of the server response to the client.
+
+```json
+{
+  "id": "1604283212",
+  "jsonrpc": "2.0",
+  "result": 7
+}
+```
+
 ## More features
+
 - TCP protocol
+
 ```go
 s, _ := jsonrpc4go.NewServer("tcp", 3232) // the protocol is tcp
 
 c, _ := jsonrpc4go.NewClient("IntRpc", "tcp", "127.0.0.1:3232") // the protocol is tcp
 ```
+
 - Hooks (Add the following code before 's.Start()')
+
 ```go
 // Set the hook function of before method execution
-s.SetBeforeFunc(func(id interface{}, method string, params interface{}) error {
-    // If the function returns an error, the program stops execution and returns an error message to the client
-    // return errors.New("Custom Error")
-    return nil
+s.SetBeforeFunc(func (id interface{}, method string, params interface{}) error {
+// If the function returns an error, the program stops execution and returns an error message to the client
+// return errors.New("Custom Error")
+return nil
 })
 // Set the hook function of after method execution
-s.SetAfterFunc(func(id interface{}, method string, result interface{}) error {
-    // If the function returns an error, the program stops execution and returns an error message to the client
-    // return errors.New("Custom Error")
-    return nil
+s.SetAfterFunc(func (id interface{}, method string, result interface{}) error {
+// If the function returns an error, the program stops execution and returns an error message to the client
+// return errors.New("Custom Error")
+return nil
 })
 ```
+
 - Rate limit (Add the following code before 's.Start()')
+
 ```go
 s.SetRateLimit(20, 10) //The maximum concurrent number is 10, The maximum request speed is 20 times per second
 ```
+
 - Custom package EOF when the protocol is tcp
+
 ```go
 // Add the following code before 's.Start()'
 s.SetOptions(server.TcpOptions{"aaaaaa", nil}) // Custom package EOF when the protocol is tcp
 // Add the following code before 'c.Call()' or 'c.BatchCall()'
 c.SetOptions(client.TcpOptions{"aaaaaa", nil}) // Custom package EOF when the protocol is tcp
 ```
+
 - Notify
+
 ```go
 // notify
 result2 := new(Result2)
@@ -109,7 +188,9 @@ err2 := c.Call("Add2", Params{1, 6}, result2, true)
 fmt.Println(err2) // nil
 fmt.Println(*result2) // {7}
 ```
+
 - Batch call
+
 ```go
 // batch call
 result3 := new(Result)
@@ -121,16 +202,20 @@ c.BatchCall()
 // data received: [{"id":"1604283212","jsonrpc":"2.0","error":{"code":-32601,"message":"Method not found","data":null}},{"id":"1604283212","jsonrpc":"2.0","result":5}]
 fmt.Println((*err3).Error()) // Method not found
 fmt.Println(*result3) // 0
-fmt.Println(*err4) // nil
+fmt.Println(*err4)    // nil
 fmt.Println(*result4) // 5
 ```
+
 - Client-Side Load-Balancing
+
 ```go
 c, _ := jsonrpc4go.NewClient("IntRpc", "tcp", "127.0.0.1:3232,127.0.0.1:3233,127.0.0.1:3234")
 ```
 
 ## Service registration & discovery
+
 ### Consul
+
 ```go
 /**
  * check: true or false. The switch of the health check.
@@ -150,7 +235,9 @@ s.Start()
 // Set in the client
 c, _ := jsonrpc4go.NewClient("IntRpc", "tcp", dc)
 ```
+
 ### Nacos
+
 ```go
 dc, _ := nacos.NewNacos("http://127.0.0.1:8849")
 
