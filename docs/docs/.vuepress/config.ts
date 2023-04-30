@@ -1,7 +1,7 @@
 import {defineConfig} from "vuepress/config";
 
 export default defineConfig({
-  title: "moonquakes",
+  title: "Moonquakes",
   description: "A rpc framework, for lightweight cross-language services development.",
   head: [
     [
@@ -26,14 +26,16 @@ export default defineConfig({
         // text for the edit-on-github link
         editLinkText: 'Edit this page on GitHub',
         nav: [
-          {text: 'Guide', link: '/guide/'}
+          {text: 'Guide', link: '/guide/'},
+          {text: 'Moonman', link: 'https://github.com/sunquakes/moonman'}
         ],
         sidebar: {
           '/guide/': [
             '',
             'golang',
             'java',
-            'php'
+            'php',
+            'debug'
           ]
         }
       },
@@ -49,7 +51,8 @@ export default defineConfig({
             '',
             'golang',
             'java',
-            'php'
+            'php',
+            'debug'
           ]
         }
       },
@@ -61,13 +64,13 @@ export default defineConfig({
     "/": {
       // @ts-ignore
       lang: "English", // this will be set as the lang attribute on <html>
-      title: "moonquakes",
+      title: "Moonquakes",
       description: "A rpc framework, for lightweight cross-language services development."
     },
     "/zh/": {
       // @ts-ignore
       lang: "简体中文",
-      title: "moonquakes",
+      title: "Moonquakes",
       description: "一个轻量级跨语言的rpc开发框架"
     }
   }

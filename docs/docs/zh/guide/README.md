@@ -3,7 +3,7 @@ title: 概览
 lang: zh-CN
 ---
 ## 介绍
-moonquakes是一个微服务解决方案。由3部分组成。一个golang组件、一个maven依赖和一个php框架。
+Moonquakes是一个微服务解决方案。由3部分组成。一个golang组件、一个maven依赖和一个php框架。
 
 每部分都包含一个服务端和客户端，消息体是JSON-RPC协议，服务端可以用http协议或tcp协议进行通信。 
 

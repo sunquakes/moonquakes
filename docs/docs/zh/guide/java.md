@@ -5,7 +5,7 @@ lang: zh-CN
 
 ## 介绍
 
-moonquakes的java部分是一个maven包，目前只支持spring框架。
+Moonquakes的java部分是一个maven包，目前只支持spring框架。
 
 ## 安装
 

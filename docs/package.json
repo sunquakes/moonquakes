@@ -1,7 +1,7 @@
 {
   "name": "moonquakes-doc",
   "version": "1.0.0",
-  "description": "The docs of the moonquakes project.",
+  "description": "The docs of the Moonquakes project.",
   "main": "index.js",
   "repository": "moonquakes.io",
   "author": "Robert",

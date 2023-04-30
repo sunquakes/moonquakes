@@ -3,7 +3,7 @@ title: PHP
 lang: en-US
 ---
 ## Introduction
-Moonquakes's php part use a php framework named hyperf. Hyperf's micro-service components support JSON-RPC primitively, so it can intercommunicate with moonquakes' golang and java components easily.
+Moonquakes's php part use a php framework named hyperf. Hyperf's micro-service components support JSON-RPC primitively, so it can intercommunicate with Moonquakes' golang and java components easily.
 
 ## What Is Hyperf 
 Hyperf is an extremely performant and flexible PHP CLI framework, powered by a state-of-the-art coroutine server and a large number of battle-tested components. Aside from decisively beating PHP-FPM frameworks in benchmarks, Hyperf is unique in its focus on flexibility and composition. Hyperf ships with an AOP-enabling (aspect-oriented programming) dependency injector to ensure components and classes are pluggable and meta-programmable. All of Hyperf's core components strictly follow [PSR](https://www.php-fig.org/psr) standards and can be used in other frameworks.
