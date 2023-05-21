@@ -1,4 +1,4 @@
-name: Docker
+name: Docker Publish Main
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -16,7 +16,8 @@ env:
   DOCKERHUB_REGISTRY: docker.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-
+  NACOS_BRANCH_NAME: refs/heads/nacos
+  CONSUL_BRANCH_NAME: refs/heads/consul
 
 jobs:
   build:
@@ -30,6 +31,53 @@ jobs:
       id-token: write
 
     steps:
+      - name: Get Tag Name
+        id: extract_tag
+        run: |
+          echo "tag_name=${GITHUB_REF#refs/tags/}" >> ${GITHUB_OUTPUT}
+
+      - name: Trigger Nacos Branch Workflow
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GH_TOKEN }}
+          script: |
+            const repo = context.repo;
+            const workflowId = 'docker-publish.yml'; // Replace with your branch workflow file name
+            const ref = '${{ env.NACOS_BRANCH_NAME }}'; // Replace with the branch you want to trigger
+            const inputs = {
+              'tag_name': '${{ steps.extract_tag.outputs.tag_name }}' // Replace with your custom parameter value
+            };
+            
+            const { data } = await github.actions.createWorkflowDispatch({
+              ...repo,
+              workflow_id: workflowId,
+              ref,
+              inputs,
+            });
+            
+            console.log('Workflow run triggered:', data);
+
+      - name: Trigger Consul Branch Workflow
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GH_TOKEN }}
+          script: |
+            const repo = context.repo;
+            const workflowId = 'docker-publish.yml'; // Replace with your branch workflow file name
+            const ref = '${{ env.CONSUL_BRANCH_NAME }}'; // Replace with the branch you want to trigger
+            const inputs = {
+              'tag_name': '${{ steps.extract_tag.outputs.tag_name }}' // Replace with your custom parameter value
+            };
+            
+            const { data } = await github.actions.createWorkflowDispatch({
+              ...repo,
+              workflow_id: workflowId,
+              ref,
+              inputs,
+            });
+            
+            console.log('Workflow run triggered:', data);
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -40,7 +88,6 @@ jobs:
         uses: sigstore/cosign-installer@f3c664df7af409cb4873aa5068053ba9d61a57b6 #v2.6.0
         with:
           cosign-release: 'v1.13.1'
-
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -107,16 +154,11 @@ jobs:
           tags: ${{ env.DOCKERHUB_REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           registry: ${{ env.DOCKERHUB_REGISTRY }}
 
-      - name: Extract tag name
-        if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
-        id: extract-tag
-        run: echo "::set-output name=tag::${GITHUB_REF#refs/tags/}"
-
       - name: Build and Push Docker Image Tag Version To DockerHub
         if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
         uses: docker/build-push-action@v2
         with:
           context: .
           push: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
-          tags: ${{ env.DOCKERHUB_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.extract-tag.outputs.tag }}
+          tags: ${{ env.DOCKERHUB_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.extract_tag.outputs.tag_name }}
           registry: ${{ env.DOCKERHUB_REGISTRY }}
