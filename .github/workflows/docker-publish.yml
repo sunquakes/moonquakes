@@ -1,4 +1,4 @@
-name: Docker
+name: Docker Publish
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -9,6 +9,8 @@ on:
   push:
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
+    branches:
+      - main
 
 env:
   # Use docker.io for Docker Hub if empty
