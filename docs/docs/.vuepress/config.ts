@@ -27,7 +27,7 @@ export default defineConfig({
         editLinkText: 'Edit this page on GitHub',
         nav: [
           {text: 'Guide', link: '/guide/'},
-          {text: 'Moonman', link: 'https://github.com/sunquakes/moonman'}
+          {text: 'Moonman', link: 'https://moonman.moonquakes.io'}
         ],
         sidebar: {
           '/guide/': [

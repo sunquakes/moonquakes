@@ -9,4 +9,4 @@ lang: zh-CN
 
 ## TCP调试工具
 
-[Moonman](https://github.com/sunquakes/moonman/releases/tag/v0.0.1)
+[Moonman](https://moonman.moonquakes.io)
