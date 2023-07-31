@@ -27,11 +27,9 @@ type Params struct {
 	B int `json:"b"`
 }
 
-type Result = int
-
-func (i *IntRpc) Add(params *Params, result *Result) error {
+func (i *IntRpc) Add(params *Params, result *int) error {
 	a := params.A + params.B
-	*result = interface{}(a).(Result)
+	*result = interface{}(a).(int)
 	return nil
 }
 
@@ -57,14 +55,8 @@ type Params struct {
 	B int `json:"b"`
 }
 
-type Result = int
-
-type Result2 struct {
-	C int `json:"c"`
-}
-
 func main() {
-	result := new(Result)
+	result := new(int)
 	c, _ := jsonrpc4go.NewClient("IntRpc", "http", "127.0.0.1:3232")
 	err := c.Call("Add", Params{1, 6}, result, false)
 	// data sent: {"id":"1604283212", "jsonrpc":"2.0", "method":"IntRpc/Add", "params":{"a":1,"b":6}}
@@ -96,9 +88,9 @@ type IntRpc struct{}
 ```go
 package main
 
-func (i *IntRpc) Add(params *Params, result *Result) error {
+func (i *IntRpc) Add(params *Params, result *int) error {
 	a := params.A + params.B
-	*result = interface{}(a).(Result)
+	*result = interface{}(a).(int)
 	return nil
 }
 ```
@@ -193,9 +185,9 @@ fmt.Println(*result2) // {7}
 
 ```go
 // batch call
-result3 := new(Result)
+result3 := new(int)
 err3 := c.BatchAppend("Add1", Params{1, 6}, result3, false)
-result4 := new(Result)
+result4 := new(int)
 err4 := c.BatchAppend("Add", Params{2, 3}, result4, false)
 c.BatchCall()
 // data sent: [{"id":"1604283212","jsonrpc":"2.0","method":"IntRpc/Add1","params":{"a":1,"b":6}},{"id":"1604283212","jsonrpc":"2.0","method":"IntRpc/Add","params":{"a":2,"b":3}}]
