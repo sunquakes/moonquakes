@@ -1,4 +1,4 @@
-[English](php/README.md) | 🇨🇳中文
+[English](README.md) | 🇨🇳中文
 # moonquakes
 
 <p align="center"><a href="https://moonquakes.io/zh/" target="_blank" rel="noopener noreferrer"><img width="200" src="https://www.moonquakes.io/images/logo.png" alt="moonquakes logo"></a></p>
