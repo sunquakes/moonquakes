@@ -21,11 +21,11 @@ func main() {
 	}()
 	tk := task.NewTask("tk", "*/5 * * * * *", func(ctx context.Context) error {
 		result := new(Result)
-		phpTcpClient, _ := jsonrpc4go.NewClient("php_tcp", "tcp", "127.0.0.1:9503")
-		phpHttpClient, _ := jsonrpc4go.NewClient("php_http", "http", "127.0.0.1:9504")
+		phpTcpClient, _ := jsonrpc4go.NewClient("php_tcp", "tcp", "php:9503")
+		phpHttpClient, _ := jsonrpc4go.NewClient("php_http", "http", "php:9504")
 
-		javaTcpClient, _ := jsonrpc4go.NewClient("java_tcp", "tcp", "127.0.0.1:3201")
-		javaHttpClient, _ := jsonrpc4go.NewClient("java_http", "http", "127.0.0.1:3202")
+		javaTcpClient, _ := jsonrpc4go.NewClient("java_tcp", "tcp", "java-tcp:3201")
+		javaHttpClient, _ := jsonrpc4go.NewClient("java_http", "http", "java-http:3202")
 
 		a := rand.Intn(100)
 		b := rand.Intn(100)

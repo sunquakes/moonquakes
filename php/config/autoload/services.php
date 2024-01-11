@@ -14,25 +14,25 @@ return [
         [
             'name' => 'GoTcpService',
             'nodes' => [
-                ['host' => '127.0.0.1', 'port' => 3601],
+                ['host' => 'go', 'port' => 3601],
             ],
         ],
         [
             'name' => 'GoHttpService',
             'nodes' => [
-                ['host' => '127.0.0.1', 'port' => 3602],
+                ['host' => 'go', 'port' => 3602],
             ],
         ],
         [
             'name' => 'JavaTcpService',
             'nodes' => [
-                ['host' => '127.0.0.1', 'port' => 3201],
+                ['host' => 'java-tcp', 'port' => 3201],
             ],
         ],
         [
             'name' => 'JavaHttpService',
             'nodes' => [
-                ['host' => '127.0.0.1', 'port' => 3202],
+                ['host' => 'java-http', 'port' => 3202],
             ],
         ]
     ],

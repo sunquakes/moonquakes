@@ -20,34 +20,37 @@ Moonquakes是一个演示项目。它展示了如何在一些web框架中使用j
 
 ## 开始演示
 ### 直接使用ip
-- 使用ip（查看示例代码直接切换分支：git checkout main）
+- 使用ip
 ```shell
-# 从dockerhub拉取镜像
-docker pull sunquakes/moonquakes:latest
-# 启动docker容器
-docker run -itd --name moonquakes sunquakes/moonquakes:latest /bin/bash
-# 容器完全启动后，查看容器日志
-docker logs moonquakes -f
+# 克隆代码
+git clone git@github.com:sunquakes/moonquakes.git
+# 切换到main分支
+git switch main
+# 编译镜像
+docker-compose build
+# 启动容器
+docker-compose up
 ```
 ### 服务和发现
-- 使用注册中心consul（查看示例代码直接切换分支：git checkout consul）
+- 使用注册中心consul
 ```shell
-# 从dockerhub拉取镜像
-docker pull sunquakes/moonquakes-consul:latest
-# 启动docker容器
-docker run -itd --name moonquakes-consul sunquakes/moonquakes-consul:latest /bin/bash
-# 容器完全启动后，查看容器日志
-docker logs moonquakes-consul -f
+# 克隆代码
+git clone git@github.com:sunquakes/moonquakes.git
+# 切换到consul分支
+git switch consul
+# 编译镜像
+docker-compose build
+# 启动容器
+docker-compose up
 ```
-- 使用注册中心nacos（查看示例代码直接切换分支：git checkout nacos）
+- 使用注册中心nacos
 ```shell
-# 从dockerhub拉取镜像
-docker pull sunquakes/moonquakes-nacos:latest
-# 启动docker容器
-docker run -itd --name moonquakes-nacos sunquakes/moonquakes-nacos:latest /bin/bash
-# 容器完全启动后，查看容器日志
-docker logs moonquakes-nacos -f
+# 克隆代码
+git clone git@github.com:sunquakes/moonquakes.git
+# 切换到nacos分支
+git switch nacos
+# 编译镜像
+docker-compose build
+# 启动容器
+docker-compose up
 ```
-
-## 预览
-![alt 预览](preview.gif)

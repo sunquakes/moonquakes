@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  java-http:
+    build:
+      context: ./java-http
+    image: moonquakes/java-http:main-latest
+    ports:
+      - "3202:3202"
+  java-tcp:
+    build:
+      context: ./java-tcp
+    image: moonquakes/java-tcp:main-latest
+    ports:
+      - "3201:3201"
+  php:
+    build:
+      context: ./php
+    image: moonquakes/php:main-latest
+    ports:
+      - "9503:9503"
+      - "9504:9504"
+  go:
+    build:
+      context: ./go
+    image: moonquakes/go:main-latest
+    ports:
+      - "3601:3601"
+      - "3602:3602"
+
+networks:
+  moonquakes-main-network:
+    driver: bridge

@@ -20,34 +20,37 @@ In moonquakes, the java framework is springboot, it use [jsonrpc4j](https://gith
 
 ## Getting started
 ### IP
-- Use ip.(view code: git checkout main) 
+- Use ip. 
 ```shell
-# Pull demo docker images from dockerhub.
-docker pull sunquakes/moonquakes:latest
+# Clone code.
+git clone git@github.com:sunquakes/moonquakes.git
+# Switch to branch main.
+git switch main
+# Build image.
+docker-compose build
 # Run docker container.
-docker run -itd --name moonquakes sunquakes/moonquakes:latest /bin/bash
-# View container logs after the container started.
-docker logs moonquakes -f
+docker-compose up
 ```
 ### Registration & Discovery
-- Use consul.(view code: git checkout consul)
+- Use consul.
 ```shell
-# Pull demo docker images from dockerhub.
-docker pull sunquakes/moonquakes-consul:latest
+# Clone code.
+git clone git@github.com:sunquakes/moonquakes.git
+# Switch to branch consul.
+git switch consul
+# Build image.
+docker-compose build
 # Run docker container.
-docker run -itd --name moonquakes-consul sunquakes/moonquakes-consul:latest /bin/bash
-# View container logs after the container started.
-docker logs moonquakes-consul -f
+docker-compose up
 ```
-- Use nacos.(view code: git checkout nacos)
+- Use nacos.
 ```shell
-# Pull demo docker images from dockerhub.
-docker pull sunquakes/moonquakes-nacos:latest
+# Clone code.
+git clone git@github.com:sunquakes/moonquakes.git
+# Switch to branch nacos.
+git switch nacos
+# Build image.
+docker-compose build
 # Run docker container.
-docker run -itd --name moonquakes-nacos sunquakes/moonquakes-nacos:latest /bin/bash
-# View container logs after the container started.
-docker logs moonquakes-nacos -f
+docker-compose up
 ```
-
-## Preview
-![alt preview](preview.gif)
