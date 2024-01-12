@@ -24,10 +24,13 @@ Moonquakes是一个演示项目。它展示了如何在一些web框架中使用j
 ```shell
 # 克隆代码
 git clone git@github.com:sunquakes/moonquakes.git
+
 # 切换到main分支
 git switch main
+
 # 编译镜像
 docker-compose build
+
 # 启动容器
 docker-compose up
 ```
@@ -36,10 +39,13 @@ docker-compose up
 ```shell
 # 克隆代码
 git clone git@github.com:sunquakes/moonquakes.git
+
 # 切换到consul分支
 git switch consul
+
 # 编译镜像
 docker-compose build
+
 # 启动容器
 docker-compose up
 ```
@@ -47,10 +53,13 @@ docker-compose up
 ```shell
 # 克隆代码
 git clone git@github.com:sunquakes/moonquakes.git
+
 # 切换到nacos分支
 git switch nacos
+
 # 编译镜像
 docker-compose build
+
 # 启动容器
 docker-compose up
 ```

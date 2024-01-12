@@ -24,10 +24,13 @@ In moonquakes, the java framework is springboot, it use [jsonrpc4j](https://gith
 ```shell
 # Clone code.
 git clone git@github.com:sunquakes/moonquakes.git
+
 # Switch to branch main.
 git switch main
+
 # Build image.
 docker-compose build
+
 # Run docker container.
 docker-compose up
 ```
@@ -36,10 +39,13 @@ docker-compose up
 ```shell
 # Clone code.
 git clone git@github.com:sunquakes/moonquakes.git
+
 # Switch to branch consul.
 git switch consul
+
 # Build image.
 docker-compose build
+
 # Run docker container.
 docker-compose up
 ```
@@ -47,10 +53,13 @@ docker-compose up
 ```shell
 # Clone code.
 git clone git@github.com:sunquakes/moonquakes.git
+
 # Switch to branch nacos.
 git switch nacos
+
 # Build image.
 docker-compose build
+
 # Run docker container.
 docker-compose up
 ```
