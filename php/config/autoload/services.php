@@ -16,35 +16,37 @@ return [
     ],
     'consumers' => [
         [
-            'name' => 'GoTcpService',
-            'nodes' => [
-                ['host' => '127.0.0.1', 'port' => 3601],
+            'name' => 'GoTcp',
+            'registry' => [
+                'protocol' => 'consul',
+                'address' => 'http://consul:8500',
             ],
         ],
         [
-            'name' => 'GoHttpService',
-            'nodes' => [
-                ['host' => '127.0.0.1', 'port' => 3602],
+            'name' => 'GoHttp',
+            'registry' => [
+                'protocol' => 'consul',
+                'address' => 'http://consul:8500',
             ],
         ],
         [
             'name' => 'java_tcp',
             'registry' => [
                 'protocol' => 'consul',
-                'address' => 'http://127.0.0.1:8500',
+                'address' => 'http://consul:8500',
             ],
         ],
         [
             'name' => 'java_http',
             'registry' => [
                 'protocol' => 'consul',
-                'address' => 'http://127.0.0.1:8500',
+                'address' => 'http://consul:8500',
             ],
         ]
     ],
     'drivers' => [
         'consul' => [
-            'uri' => 'http://localhost:8500',
+            'uri' => 'http://consul:8500',
             'token' => '',
         ]
     ],

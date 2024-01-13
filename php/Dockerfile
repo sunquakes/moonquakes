@@ -1,12 +1,5 @@
-# Default Dockerfile
-#
-# @link     https://www.hyperf.io
-# @document https://hyperf.wiki
-# @contact  group@hyperf.io
-# @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
-
 FROM hyperf/hyperf:8.0-alpine-v3.16-swoole
-LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MIT" app.name="Hyperf"
+LABEL maintainer="sunquakes<sunquakes@outlook.com>" version="1.0" license="MIT" app.name="moonquakes.php"
 
 ##
 # ---------- env settings ----------
@@ -48,7 +41,5 @@ WORKDIR /opt/www
 
 COPY . /opt/www
 RUN composer install --no-dev -o && php bin/hyperf.php
-
-EXPOSE 9501
 
 ENTRYPOINT ["php", "/opt/www/bin/hyperf.php", "start"]

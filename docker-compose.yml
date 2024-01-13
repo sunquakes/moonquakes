@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  java-http-consul:
+    build:
+      context: ./java-http
+    image: moonquakes/java-http:consul-latest
+    ports:
+      - "3202:3202"
+    depends_on:
+      - consul
+  java-tcp-consul:
+    build:
+      context: ./java-tcp
+    image: moonquakes/java-tcp:consul-latest
+    ports:
+      - "3201:3201"
+    depends_on:
+      - consul
+  php-consul:
+    build:
+      context: ./php
+    image: moonquakes/php:consul-latest
+    ports:
+      - "9503:9503"
+      - "9504:9504"
+    depends_on:
+      - consul
+  go-consul:
+    build:
+      context: ./go
+    image: moonquakes/go:consul-latest
+    ports:
+      - "3601:3601"
+      - "3602:3602"
+    depends_on:
+      - consul
+  consul:
+    image: consul:1.15.4
+    ports:
+      - "8500:8500"
+
+networks:
+  moonquakes-consul-network:
+    driver: bridge

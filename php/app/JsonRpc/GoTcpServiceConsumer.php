@@ -7,7 +7,7 @@ use Hyperf\RpcClient\AbstractServiceClient;
 
 class GoTcpServiceConsumer extends AbstractServiceClient implements GoServiceInterface
 {
-    protected string $serviceName = 'GoTcpService';
+    protected string $serviceName = 'GoTcp';
 
     protected string $protocol = 'jsonrpc';
 
