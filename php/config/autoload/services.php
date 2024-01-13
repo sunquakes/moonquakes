@@ -19,28 +19,28 @@ return [
             'name' => 'GoTcp',
             'registry' => [
                 'protocol' => 'nacos',
-                'address' => 'http://127.0.0.1:8848',
+                'address' => 'http://nacos-server:8848',
             ],
         ],
         [
             'name' => 'GoHttp',
             'registry' => [
                 'protocol' => 'nacos',
-                'address' => 'http://127.0.0.1:8848',
+                'address' => 'http://nacos-server:8848',
             ],
         ],
         [
             'name' => 'java_tcp',
             'registry' => [
                 'protocol' => 'nacos',
-                'address' => 'http://127.0.0.1:8848',
+                'address' => 'http://nacos-server:8848',
             ],
         ],
         [
             'name' => 'java_http',
             'registry' => [
                 'protocol' => 'nacos',
-                'address' => 'http://127.0.0.1:8848',
+                'address' => 'http://nacos-server:8848',
             ],
         ]
     ],
@@ -49,7 +49,7 @@ return [
             // nacos server url like https://nacos.hyperf.io, Priority is higher than host:port
             // 'url' => '',
             // The nacos host info
-            'host' => '127.0.0.1',
+            'host' => 'nacos-server',
             'port' => 8848,
             // The nacos account info
             'username' => 'nacos',

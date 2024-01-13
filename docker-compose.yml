@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  java-http-nacos:
+    build:
+      context: ./java-http
+    image: moonquakes/java-http:nacos-latest
+    ports:
+      - "3202:3202"
+    depends_on:
+      - nacos-server
+  java-tcp-nacos:
+    build:
+      context: ./java-tcp
+    image: moonquakes/java-tcp:nacos-latest
+    ports:
+      - "3201:3201"
+    depends_on:
+      - nacos-server
+  php-nacos:
+    build:
+      context: ./php
+    image: moonquakes/php:nacos-latest
+    ports:
+      - "9503:9503"
+      - "9504:9504"
+    depends_on:
+      - nacos-server
+  go-nacos:
+    build:
+      context: ./go
+    image: moonquakes/go:nacos-latest
+    ports:
+      - "3601:3601"
+      - "3602:3602"
+    depends_on:
+      - nacos-server
+  nacos-server:
+    image: nacos/nacos-server:v2.3.0
+    ports:
+      - "8848:8848"
+    environment:
+      - MODE=standalone
+
+networks:
+  moonquakes-nacos-network:
+    driver: bridge

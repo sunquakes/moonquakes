@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	dc, _ := nacos.NewNacos("http://localhost:8848")
+	dc, _ := nacos.NewNacos("http://nacos-server:8848")
 	go func() {
 		s, _ := jsonrpc4go.NewServer("tcp", 3601)
 		s.SetDiscovery(dc, "")
