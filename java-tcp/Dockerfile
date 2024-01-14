@@ -18,4 +18,4 @@ COPY --from=mvnbuilder /opt/www/target/java-tcp-1.0.0-SNAPSHOT.jar /opt/www/java
 COPY wait-for-server.sh /usr/local/bin/wait-for-server
 RUN chmod +x /usr/local/bin/wait-for-server
 
-ENTRYPOINT ["/usr/local/bin/wait-for-server", "nacos-server", "8848", "--", "java", "-jar", "/opt/www/java-tcp.jar"]
+ENTRYPOINT /usr/local/bin/wait-for-server nacos-server 8848 && java -jar /opt/www/java-tcp.jar

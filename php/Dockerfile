@@ -48,4 +48,4 @@ RUN composer install --no-dev -o && php bin/hyperf.php
 COPY wait-for-server.sh /usr/local/bin/wait-for-server
 RUN chmod +x /usr/local/bin/wait-for-server
 
-ENTRYPOINT ["/usr/local/bin/wait-for-server", "nacos-server", "8848", "--", "php", "/opt/www/bin/hyperf.php", "start"]
+ENTRYPOINT /usr/local/bin/wait-for-server nacos-server 8848 && php /opt/www/bin/hyperf.php start

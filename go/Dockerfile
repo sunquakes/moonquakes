@@ -14,4 +14,4 @@ RUN go env -w CGO_ENABLED=0 \
 COPY wait-for-server.sh /usr/local/bin/wait-for-server
 RUN chmod +x /usr/local/bin/wait-for-server
 
-ENTRYPOINT ["/usr/local/bin/wait-for-server", "nacos-server", "8848", "--", "/opt/www/go"]
+ENTRYPOINT /usr/local/bin/wait-for-server nacos-server 8848 && /opt/www/go
