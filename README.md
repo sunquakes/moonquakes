@@ -25,6 +25,8 @@ In moonquakes, the java framework is springboot, it use [jsonrpc4j](https://gith
 # Clone code.
 git clone git@github.com:sunquakes/moonquakes.git
 
+cd moonquakes
+
 # Switch to branch main.
 git switch main
 
@@ -40,6 +42,8 @@ docker-compose up
 # Clone code.
 git clone git@github.com:sunquakes/moonquakes.git
 
+cd moonquakes
+
 # Switch to branch consul.
 git switch consul
 
@@ -53,6 +57,8 @@ docker-compose up
 ```shell
 # Clone code.
 git clone git@github.com:sunquakes/moonquakes.git
+
+cd moonquakes
 
 # Switch to branch nacos.
 git switch nacos
