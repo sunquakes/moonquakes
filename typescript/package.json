@@ -1,0 +1,22 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "A jsonrpc4js demo project.",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "jsonrpc2.0",
+    "nodejs",
+    "typescript"
+  ],
+  "author": "Shing Rui",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/node": "^20.11.0"
+  },
+  "dependencies": {
+    "jsonrpc4js": "^0.0.1"
+  }
+}

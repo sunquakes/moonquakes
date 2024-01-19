@@ -27,6 +27,13 @@ services:
     ports:
       - "3601:3601"
       - "3602:3602"
+  typescript:
+    build:
+      context: ./typescript
+    image: moonquakes/typescript:main-latest
+    ports:
+      - "7001:7001"
+      - "7002:7002"
 
 networks:
   moonquakes-main-network:
