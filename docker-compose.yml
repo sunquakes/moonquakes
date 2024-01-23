@@ -35,6 +35,15 @@ services:
       - "3602:3602"
     depends_on:
       - nacos-server
+  typescript-nacos:
+    build:
+      context: ./typescript
+    image: moonquakes/typescript:nacos-latest
+    ports:
+      - "7001:7001"
+      - "7002:7002"
+    depends_on:
+      - nacos-server
   nacos-server:
     image: nacos/nacos-server:v2.3.0
     ports:
