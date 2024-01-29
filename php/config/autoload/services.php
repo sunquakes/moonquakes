@@ -19,34 +19,34 @@ return [
             'name' => 'GoTcp',
             'registry' => [
                 'protocol' => 'consul',
-                'address' => 'http://consul:8500',
+                'address' => 'http://consul-server:8500',
             ],
         ],
         [
             'name' => 'GoHttp',
             'registry' => [
                 'protocol' => 'consul',
-                'address' => 'http://consul:8500',
+                'address' => 'http://consul-server:8500',
             ],
         ],
         [
             'name' => 'java_tcp',
             'registry' => [
                 'protocol' => 'consul',
-                'address' => 'http://consul:8500',
+                'address' => 'http://consul-server:8500',
             ],
         ],
         [
             'name' => 'java_http',
             'registry' => [
                 'protocol' => 'consul',
-                'address' => 'http://consul:8500',
+                'address' => 'http://consul-server:8500',
             ],
         ]
     ],
     'drivers' => [
         'consul' => [
-            'uri' => 'http://consul:8500',
+            'uri' => 'http://consul-server:8500',
             'token' => '',
         ]
     ],

@@ -8,7 +8,7 @@ services:
     ports:
       - "3202:3202"
     depends_on:
-      - consul
+      - consul-server
   java-tcp-consul:
     build:
       context: ./java-tcp
@@ -16,7 +16,7 @@ services:
     ports:
       - "3201:3201"
     depends_on:
-      - consul
+      - consul-server
   php-consul:
     build:
       context: ./php
@@ -25,7 +25,7 @@ services:
       - "9503:9503"
       - "9504:9504"
     depends_on:
-      - consul
+      - consul-server
   go-consul:
     build:
       context: ./go
@@ -34,11 +34,22 @@ services:
       - "3601:3601"
       - "3602:3602"
     depends_on:
-      - consul
-  consul:
+      - consul-server
+  typescript-consul:
+    build:
+      context: ./typescript
+    image: moonquakes/typescript:consul-latest
+    ports:
+      - "7001:7001"
+      - "7002:7002"
+    depends_on:
+      - consul-server
+  consul-server:
     image: consul:1.15.4
     ports:
       - "8500:8500"
+    logging:
+      driver: none
 
 networks:
   moonquakes-consul-network:

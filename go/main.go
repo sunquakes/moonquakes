@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	dc, _ := consul.NewConsul("http://consul:8500?check=true&instanceId=1")
+	dc, _ := consul.NewConsul("http://consul-server:8500?check=true&instanceId=1")
 	go func() {
 		s, _ := jsonrpc4go.NewServer("tcp", 3601)
 		s.SetDiscovery(dc, "")
