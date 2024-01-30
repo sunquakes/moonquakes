@@ -34,6 +34,7 @@ export default defineConfig({
             '',
             'golang',
             'java',
+            'javascript',
             'php',
             'debug'
           ]
@@ -51,6 +52,7 @@ export default defineConfig({
             '',
             'golang',
             'java',
+            'javascript',
             'php',
             'debug'
           ]

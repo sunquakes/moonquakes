@@ -4,7 +4,7 @@
   "description": "The docs of the Moonquakes project.",
   "main": "index.js",
   "repository": "moonquakes.io",
-  "author": "Robert",
+  "author": "Shing Rui <sunquakes@outlook.com>",
   "license": "MIT",
   "scripts": {
     "docs:dev": "vuepress dev docs --temp .temp",
