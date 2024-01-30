@@ -1,5 +1,5 @@
 ---
-title: Java 
+title: Java
 lang: en-US
 ---
 
@@ -116,7 +116,7 @@ jsonrpc.client.package-eof=\r\n
 ### step5. Create client interface
 
 Create a new interface file named IJsonRpcClient with @JsonRpcClient, protocol can be tcp or http or https and should
-  be same as item(jsonrpc.server.protocol) of step2, value must be same as the value of step3.
+be same as item(jsonrpc.server.protocol) of step2, value must be same as the value of step3.
 
 ```java
 

@@ -1,5 +1,5 @@
 ---
-title: Debug 
+title: Debug
 lang: en-US
 ---
 

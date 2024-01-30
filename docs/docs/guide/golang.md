@@ -1,5 +1,5 @@
 ---
-title: Golang 
+title: Golang
 lang: en-US
 ---
 
