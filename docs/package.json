@@ -5,7 +5,17 @@
   "main": "index.js",
   "repository": "moonquakes.io",
   "author": "Shing Rui <sunquakes@outlook.com>",
-  "license": "MIT",
+  "keywords": [
+    "jsonrpc2.0",
+    "microservice",
+    "nacos",
+    "consul",
+    "golang",
+    "nodejs",
+    "java",
+    "php"
+  ],
+  "license": "Apache-2.0",
   "scripts": {
     "docs:dev": "vuepress dev docs --temp .temp",
     "docs:build": "vuepress build docs"
