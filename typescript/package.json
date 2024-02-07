@@ -17,6 +17,6 @@
     "@types/node": "^20.11.0"
   },
   "dependencies": {
-    "jsonrpc4js": "^0.0.1"
+    "jsonrpc4js": "^1.0.3"
   }
 }

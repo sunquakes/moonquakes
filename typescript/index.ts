@@ -3,9 +3,24 @@ const {NewClient} = require('jsonrpc4js')
 import * as net from 'net'
 import * as http from 'http'
 
-class TcpRpc {
-  add(a: number, b: number): number {
-    return a + b
+type Args = {
+  a: number
+  b: number
+}
+
+type Result = {
+  c: number
+}
+
+class JsTcp {
+  add(args: Args): Result {
+    return {c : args.a + args.b }
+  }
+}
+
+class JsHttp {
+  add(args: Args): Result {
+    return {c : args.a + args.b }
   }
 }
 
@@ -13,7 +28,7 @@ async function main() {
   await new Promise((resolve) => {
     const port = 7001;
     const server = NewServer('tcp', port)
-    server.register(new TcpRpc())
+    server.register(new JsTcp())
     server.start((s: net.Server) => {
       resolve(s)
     })
@@ -21,8 +36,8 @@ async function main() {
 
   await new Promise((resolve) => {
     const port = 7002;
-    const server = NewServer('tcp', port);
-    server.register(new TcpRpc());
+    const server = NewServer('http', port);
+    server.register(new JsHttp());
     server.start((s: http.Server) => {
       resolve(s)
     })
@@ -74,7 +89,7 @@ async function main() {
       console.error(error)
     }
 
-    await sleep(1000);
+    await sleep(5000);
   }
 }
 

@@ -27,6 +27,9 @@ func main() {
 		javaTcpClient, _ := jsonrpc4go.NewClient("java_tcp", "tcp", "java-tcp:3201")
 		javaHttpClient, _ := jsonrpc4go.NewClient("java_http", "http", "java-http:3202")
 
+		jsTcpClient, _ := jsonrpc4go.NewClient("JsTcp", "tcp", "typescript:7001")
+		jsHttpClient, _ := jsonrpc4go.NewClient("JsHttp", "http", "typescript:7002")
+
 		a := rand.Intn(100)
 		b := rand.Intn(100)
 		_ = phpTcpClient.Call("add", Params{Args{a, b}}, result, false)
@@ -46,6 +49,16 @@ func main() {
 		b = rand.Intn(100)
 		_ = javaHttpClient.Call("add", Params{Args{a, b}}, result, false)
 		fmt.Printf("[http] Go asked:\"%d+%d=?\"; Java answered:\"%d\"\n", a, b, (*result).C)
+
+		a = rand.Intn(100)
+		b = rand.Intn(100)
+		_ = jsTcpClient.Call("add", Params{Args{a, b}}, result, false)
+		fmt.Printf("[tcp] Go asked:\"%d+%d=?\"; Js answered:\"%d\"\n", a, b, (*result).C)
+
+		a = rand.Intn(100)
+		b = rand.Intn(100)
+		_ = jsHttpClient.Call("add", Params{Args{a, b}}, result, false)
+		fmt.Printf("[http] Go asked:\"%d+%d=?\"; Js answered:\"%d\"\n", a, b, (*result).C)
 		return nil
 	})
 	task.AddTask("tk", tk)
