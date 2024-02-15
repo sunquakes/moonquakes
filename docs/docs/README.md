@@ -13,6 +13,8 @@ features:
     footer: Apache-2.0 Licensed | Copyright © 2023-present Shing Rui 
 ---
 
+---
+
 ## Quick Start
 
 ```shell
