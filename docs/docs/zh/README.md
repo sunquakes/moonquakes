@@ -10,7 +10,7 @@ features:
     details: 每种语言的框架中只需要引入一个组件, 用 http 或 tcp 协议进行通信.
   - title: 标准化
     details: 实现了JSON-RPC协议
-    footer: Apache-2.0 Licensed | Copyright © 2023-present Shing Rui
+footer: Apache-2.0 Licensed | Copyright © 2023-present Shing Rui
 ---
 
 ---

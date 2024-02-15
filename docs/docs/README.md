@@ -10,7 +10,7 @@ features:
     details: Only import a component in each framework, communicate each other use tcp or http protocol.
   - title: Standard
     details: Using a standard jsonrpc implementation
-    footer: Apache-2.0 Licensed | Copyright © 2023-present Shing Rui 
+footer: Apache-2.0 Licensed | Copyright © 2023-present Shing Rui 
 ---
 
 ---
