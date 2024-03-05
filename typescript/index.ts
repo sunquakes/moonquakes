@@ -28,7 +28,7 @@ async function main() {
   await new Promise((resolve) => {
     const port = 7001;
     const server = NewServer('tcp', port)
-    server.register(new JsTcp())
+    server.register(new JsTcp(), 'js_tcp')
     server.start((s: net.Server) => {
       resolve(s)
     })
@@ -37,7 +37,7 @@ async function main() {
   await new Promise((resolve) => {
     const port = 7002;
     const server = NewServer('http', port);
-    server.register(new JsHttp());
+    server.register(new JsHttp(), 'js_http');
     server.start((s: http.Server) => {
       resolve(s)
     })

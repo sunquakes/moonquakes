@@ -9,6 +9,8 @@ use App\JsonRpc\GoHttpServiceConsumer;
 use App\JsonRpc\GoTcpServiceConsumer;
 use App\JsonRpc\JavaHttpServiceConsumer;
 use App\JsonRpc\JavaTcpServiceConsumer;
+use App\JsonRpc\JsHttpServiceConsumer;
+use App\JsonRpc\JsTcpServiceConsumer;
 
 #[Crontab(name: "ClientTask", rule: "*/5 * * * * *", callback: "execute", memo: "客户端定时任务")]
 class ClientTask
@@ -27,6 +29,12 @@ class ClientTask
 
     #[Inject]
     private JavaTcpServiceConsumer $javaTcpServiceConsumer;
+
+    #[Inject]
+    private JsHttpServiceConsumer $jsHttpServiceConsumer;
+
+    #[Inject]
+    private JsTcpServiceConsumer $jsTcpServiceConsumer;
 
     public function execute()
     {
@@ -65,6 +73,24 @@ class ClientTask
             $b = rand(0, 100);
             $result = $this->javaTcpServiceConsumer->add(["a" => $a, "b" => $b]);
             $this->logger->info(sprintf("[tcp] PHP asked:\"%d+%d=?\"; Java answered:\"%d\"", $a, $b, $result["c"]));
+        } catch (Exception $e) {
+            $this->logger->info($e->getMessage());
+        }
+
+        // js client
+        try {
+            $a = rand(0, 100);
+            $b = rand(0, 100);
+            $result = $this->jsHttpServiceConsumer->add(["a" => $a, "b" => $b]);
+            $this->logger->info(sprintf("[http] PHP asked:\"%d+%d=?\"; Typescript answered:\"%d\"", $a, $b, $result["c"]));
+        } catch (Exception $e) {
+            $this->logger->info($e->getMessage());
+        }
+        try {
+            $a = rand(0, 100);
+            $b = rand(0, 100);
+            $result = $this->jsTcpServiceConsumer->add(["a" => $a, "b" => $b]);
+            $this->logger->info(sprintf("[tcp] PHP asked:\"%d+%d=?\"; Typescript answered:\"%d\"", $a, $b, $result["c"]));
         } catch (Exception $e) {
             $this->logger->info($e->getMessage());
         }

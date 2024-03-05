@@ -34,6 +34,18 @@ return [
             'nodes' => [
                 ['host' => 'java-http', 'port' => 3202],
             ],
+        ],
+        [
+            'name' => 'JsTcpService',
+            'nodes' => [
+                ['host' => 'typescript', 'port' => 7001],
+            ],
+        ],
+        [
+            'name' => 'JsHttpService',
+            'nodes' => [
+                ['host' => 'typescript', 'port' => 7002],
+            ],
         ]
     ],
 ];
