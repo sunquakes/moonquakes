@@ -8,7 +8,8 @@ services:
     ports:
       - "3202:3202"
     depends_on:
-      - nacos-server
+      nacos-server:
+        condition: service_healthy
   java-tcp-nacos:
     build:
       context: ./java-tcp
@@ -16,7 +17,8 @@ services:
     ports:
       - "3201:3201"
     depends_on:
-      - nacos-server
+      nacos-server:
+        condition: service_healthy
   php-nacos:
     build:
       context: ./php
@@ -25,7 +27,8 @@ services:
       - "9503:9503"
       - "9504:9504"
     depends_on:
-      - nacos-server
+      nacos-server:
+        condition: service_healthy
   go-nacos:
     build:
       context: ./go
@@ -34,7 +37,8 @@ services:
       - "3601:3601"
       - "3602:3602"
     depends_on:
-      - nacos-server
+      nacos-server:
+        condition: service_healthy
   typescript-nacos:
     build:
       context: ./typescript
@@ -43,13 +47,19 @@ services:
       - "7001:7001"
       - "7002:7002"
     depends_on:
-      - nacos-server
+      nacos-server:
+        condition: service_healthy
   nacos-server:
     image: nacos/nacos-server:v2.3.0
     ports:
       - "8848:8848"
     environment:
       - MODE=standalone
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8848/nacos/v1/console/health/readiness" ]
+      interval: 10s
+      timeout: 10s
+      retries: 10
 
 networks:
   moonquakes-nacos-network:
