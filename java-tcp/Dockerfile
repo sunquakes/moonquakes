@@ -14,8 +14,4 @@ RUN apt-get update && apt-get install -y netcat
 WORKDIR /opt/www
 COPY --from=mvnbuilder /opt/www/target/java-tcp-1.0.0-SNAPSHOT.jar /opt/www/java-tcp.jar
 
-# Copy the wait script
-COPY wait-for-server.sh /usr/local/bin/wait-for-server
-RUN chmod +x /usr/local/bin/wait-for-server
-
-ENTRYPOINT /usr/local/bin/wait-for-server nacos-server 8848 && java -jar /opt/www/java-tcp.jar
+ENTRYPOINT ["java", "-jar", "/opt/www/java-tcp.jar"]

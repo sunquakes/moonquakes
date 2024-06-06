@@ -11,8 +11,4 @@ RUN npm install typescript -g \
     && npm install \
     && tsc
 
-# Copy the wait script
-COPY wait-for-server.sh /usr/local/bin/wait-for-server
-RUN chmod +x /usr/local/bin/wait-for-server
-
-ENTRYPOINT /usr/local/bin/wait-for-server nacos-server 8848 && node /opt/www/dist/index.js
+ENTRYPOINT ["node", "/opt/www/dist/index.js"]

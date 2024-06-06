@@ -10,8 +10,4 @@ COPY . /opt/www
 RUN go env -w CGO_ENABLED=0 \
     && go build .
 
-# Copy the wait script
-COPY wait-for-server.sh /usr/local/bin/wait-for-server
-RUN chmod +x /usr/local/bin/wait-for-server
-
-ENTRYPOINT /usr/local/bin/wait-for-server nacos-server 8848 && /opt/www/go
+ENTRYPOINT ["/opt/www/go"]
