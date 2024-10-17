@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Java | Moonquakes</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/images/logo.png">
+    <meta name="description" content="一个轻量级跨语言的rpc开发框架">
+    
+    <link rel="preload" href="/assets/css/0.styles.8f3dca9f.css" as="style"><link rel="preload" href="/assets/js/app.63a1c23e.js" as="script"><link rel="preload" href="/assets/js/2.778bb4ad.js" as="script"><link rel="preload" href="/assets/js/1.f8bb34da.js" as="script"><link rel="preload" href="/assets/js/33.34be928d.js" as="script"><link rel="prefetch" href="/assets/js/10.fde088a2.js"><link rel="prefetch" href="/assets/js/11.c62b6b34.js"><link rel="prefetch" href="/assets/js/12.27d4f152.js"><link rel="prefetch" href="/assets/js/13.3f3f6a36.js"><link rel="prefetch" href="/assets/js/14.eb7a3d07.js"><link rel="prefetch" href="/assets/js/15.114dfd5c.js"><link rel="prefetch" href="/assets/js/16.85253907.js"><link rel="prefetch" href="/assets/js/17.c2838453.js"><link rel="prefetch" href="/assets/js/18.3256f17f.js"><link rel="prefetch" href="/assets/js/19.d8afd0ae.js"><link rel="prefetch" href="/assets/js/20.0d880388.js"><link rel="prefetch" href="/assets/js/21.33b300c9.js"><link rel="prefetch" href="/assets/js/22.01a71757.js"><link rel="prefetch" href="/assets/js/23.21e454e5.js"><link rel="prefetch" href="/assets/js/24.11ce8c25.js"><link rel="prefetch" href="/assets/js/25.b3e34a94.js"><link rel="prefetch" href="/assets/js/26.a8774204.js"><link rel="prefetch" href="/assets/js/27.c9fe51ec.js"><link rel="prefetch" href="/assets/js/28.6e7469d0.js"><link rel="prefetch" href="/assets/js/29.27927871.js"><link rel="prefetch" href="/assets/js/3.af33e5d6.js"><link rel="prefetch" href="/assets/js/30.e4f5ef92.js"><link rel="prefetch" href="/assets/js/31.a43f1282.js"><link rel="prefetch" href="/assets/js/32.1df85973.js"><link rel="prefetch" href="/assets/js/34.a6d967cb.js"><link rel="prefetch" href="/assets/js/35.2bea74d1.js"><link rel="prefetch" href="/assets/js/4.45665f8a.js"><link rel="prefetch" href="/assets/js/5.7098d77a.js"><link rel="prefetch" href="/assets/js/6.0c0a0f39.js"><link rel="prefetch" href="/assets/js/7.6a854e57.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.5e19b665.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8f3dca9f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/zh/" class="home-link router-link-active"><img src="/images/logo.png" alt="Moonquakes" class="logo"> <span class="site-name can-hide">Moonquakes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/zh/guide/" class="nav-link router-link-active">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">选择语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="Select language" class="mobile-dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/java.html" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/zh/guide/java.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  简体中文
+</a></li></ul></div></div> <a href="https://github.com/sunquakes/moonquakes" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/zh/guide/" class="nav-link router-link-active">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">选择语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="Select language" class="mobile-dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/java.html" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/zh/guide/java.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  简体中文
+</a></li></ul></div></div> <a href="https://github.com/sunquakes/moonquakes" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/zh/guide/" aria-current="page" class="sidebar-link">概览</a></li><li><a href="/zh/guide/golang.html" class="sidebar-link">Golang</a></li><li><a href="/zh/guide/java.html" aria-current="page" class="active sidebar-link">Java</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/zh/guide/java.html#介绍" class="sidebar-link">介绍</a></li><li class="sidebar-sub-header"><a href="/zh/guide/java.html#安装" class="sidebar-link">安装</a></li><li class="sidebar-sub-header"><a href="/zh/guide/java.html#开始使用" class="sidebar-link">开始使用</a></li><li class="sidebar-sub-header"><a href="/zh/guide/java.html#服务注册和发现" class="sidebar-link">服务注册和发现</a></li></ul></li><li><a href="/zh/guide/javascript.html" class="sidebar-link">Javascript</a></li><li><a href="/zh/guide/php.html" class="sidebar-link">PHP</a></li><li><a href="/zh/guide/debug.html" class="sidebar-link">调试</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="介绍"><a href="#介绍" class="header-anchor">#</a> 介绍</h2> <p>Moonquakes的java部分是一个maven包，目前只支持spring框架。</p> <h2 id="安装"><a href="#安装" class="header-anchor">#</a> 安装</h2> <ul><li>在pom.xml文件中添加maven源</li></ul> <div class="language-xml extra-class"><pre class="language-xml"><code>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>repositories</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>repository</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">&gt;</span></span>releases<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>Releases<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>https://oss.sonatype.org/content/repositories/releases/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>repository</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>repository</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">&gt;</span></span>snapshots<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>Snapshots<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>https://oss.sonatype.org/content/repositories/snapshots/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>repository</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>repositories</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><ul><li>在pom.xml文件中添加依赖</li></ul> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token comment">&lt;!-- https://mvnrepository.com/artifact/com.sunquakes/jsonrpc4j --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.sunquakes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>jsonrpc4j<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.1.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="开始使用"><a href="#开始使用" class="header-anchor">#</a> 开始使用</h2> <h3 id="步骤1-用-jsonrpcscan注解配置basepackages-扫描service和client"><a href="#步骤1-用-jsonrpcscan注解配置basepackages-扫描service和client" class="header-anchor">#</a> 步骤1. 用@JsonRpcScan注解配置basePackages，扫描Service和Client</h3> <ul><li>方法1. 用配置文件方式注入</li></ul> <div class="language-java extra-class"><pre class="language-java"><code>
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token annotation punctuation">@JsonRpcScan</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&quot;com.sunquakes&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JsonRpcConfig</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>方法2. 在入口Application文件中注入</li></ul> <div class="language-java extra-class"><pre class="language-java"><code>
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@JsonRpcScan</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&quot;com.sunquakes.jsonrpc4j.spring.boot&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JsonRpcApplication</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">JsonRpcApplication</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="步骤2-配置服务端"><a href="#步骤2-配置服务端" class="header-anchor">#</a> 步骤2. 配置服务端</h3> <ul><li>添加服务端配置项到application.properties文件中</li></ul> <div class="language-properties extra-class"><pre class="language-properties"><code><span class="token comment"># 配置服务端采用的协议，可以配置tcp或http。</span>
+<span class="token key attr-name">jsonrpc.server.protocol</span><span class="token punctuation">=</span><span class="token value attr-value">tcp</span>
+<span class="token comment"># 配置服务端监听的端口。</span>
+<span class="token key attr-name">jsonrpc.server.port</span><span class="token punctuation">=</span><span class="token value attr-value">3200</span>
+<span class="token comment"># 如果采用的协议是http，接下来的两个配置项可以忽略。</span>
+<span class="token comment"># 单次数据的结束符，分隔服务端接收的数据。</span>
+<span class="token key attr-name">jsonrpc.server.package-eof</span><span class="token punctuation">=</span><span class="token value attr-value">\r\n</span>
+<span class="token comment"># 服务端接收数据的缓存区大小。</span>
+<span class="token key attr-name">jsonrpc.server.package-max-length</span><span class="token punctuation">=</span><span class="token value attr-value">2097152</span>
+</code></pre></div><h3 id="步骤3-创建服务接口文件和实现类文件-实现业务逻辑"><a href="#步骤3-创建服务接口文件和实现类文件-实现业务逻辑" class="header-anchor">#</a> 步骤3. 创建服务接口文件和实现类文件，实现业务逻辑</h3> <ul><li>创建一个名为IJsonRpcService的接口文件，添加注解@JsonRpcService，value值为服务名</li></ul> <div class="language-java extra-class"><pre class="language-java"><code>
+<span class="token annotation punctuation">@JsonRpcService</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;JsonRpc&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IJsonRpcService</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>创建一个名为JsonRpcServiceImpl的类文件去实现接口IJsonRpcService</li></ul> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JsonRpcServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">IJsonRpcService</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Integer</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="步骤4-配置客户端"><a href="#步骤4-配置客户端" class="header-anchor">#</a> 步骤4. 配置客户端</h3> <p>添加客户端配置项到application.properties文件中</p> <div class="language-properties extra-class"><pre class="language-properties"><code><span class="token comment"># Symbol for the end of data request once.</span>
+<span class="token key attr-name">jsonrpc.client.package-eof</span><span class="token punctuation">=</span><span class="token value attr-value">\r\n</span>
+</code></pre></div><h3 id="步骤5-创建客户端接口文件"><a href="#步骤5-创建客户端接口文件" class="header-anchor">#</a> 步骤5. 创建客户端接口文件</h3> <p>创建一个名为IJsonRpcClient的接口文件，添加注解@JsonRpcClient，其中配置的value值为请求的服务名（与步骤3的value值对应），protocol值可以是tcp/http/https（与步骤2中配置的jsonrpc.server.protocol值对应）。</p> <div class="language-java extra-class"><pre class="language-java"><code>
+<span class="token annotation punctuation">@JsonRpcClient</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;JsonRpc&quot;</span><span class="token punctuation">,</span> protocol <span class="token operator">=</span> <span class="token string">&quot;tcp&quot;</span><span class="token punctuation">,</span> url <span class="token operator">=</span> <span class="token string">&quot;localhost:3200&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IJsonRpcClient</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="步骤6-用客户端请求服务端"><a href="#步骤6-用客户端请求服务端" class="header-anchor">#</a> 步骤6. 用客户端请求服务端</h3> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JsonRpcTest</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">IJsonRpcClient</span> jsonRpcClient<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 发送的数据格式: {&quot;id&quot;:&quot;691bbf41-e992-4f45-9c0d-1eeb0b088698&quot;,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;json_rpc/add&quot;,&quot;params&quot;:{&quot;a&quot;:3,&quot;b&quot;:4}}</span>
+        <span class="token comment">// 接收的数据格式: {&quot;id&quot;:&quot;691bbf41-e992-4f45-9c0d-1eeb0b088698&quot;,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;result&quot;:7}</span>
+        <span class="token keyword">return</span> jsonRpcClient<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 返回结果是3</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="服务注册和发现"><a href="#服务注册和发现" class="header-anchor">#</a> 服务注册和发现</h2> <h3 id="consul"><a href="#consul" class="header-anchor">#</a> consul</h3> <div class="language-properties extra-class"><pre class="language-properties"><code><span class="token comment"># 主机名，非必填项，如果用默认主机ip，此项可以不配置</span>
+<span class="token key attr-name">jsonrpc.discovery.hostname</span><span class="token punctuation">=</span><span class="token value attr-value">192.168.39.1 </span>
+<span class="token comment"># consul地址</span>
+<span class="token comment"># instanceId: 用来区分不同节点上拥有相同主机名和端口的 </span>
+<span class="token comment"># check: 开启健康检查，默认关闭</span>
+<span class="token comment"># checkInterval: 健康检查周期，默认60s</span>
+<span class="token key attr-name">jsonrpc.discovery.url</span><span class="token punctuation">=</span><span class="token value attr-value">http://127.0.0.1:8500?instanceId=2&amp;check=true&amp;checkInterval=5s</span>
+<span class="token comment"># consul驱动</span>
+<span class="token key attr-name">jsonrpc.discovery.driver-name</span><span class="token punctuation">=</span><span class="token value attr-value">com.sunquakes.jsonrpc4j.discovery.Consul</span>
+</code></pre></div><h3 id="nacos"><a href="#nacos" class="header-anchor">#</a> nacos</h3> <div class="language-properties extra-class"><pre class="language-properties"><code><span class="token comment"># 主机名，非必填项，如果用默认主机ip，此项可以不配置</span>
+<span class="token key attr-name">jsonrpc.discovery.hostname</span><span class="token punctuation">=</span><span class="token value attr-value">192.168.39.1 </span>
+
+<span class="token comment"># nacos地址</span>
+<span class="token comment"># 支持 [Open API Guide](https://nacos.io/zh-cn/docs/open-api.html) 注册实例章节的请求参数</span>
+<span class="token key attr-name">jsonrpc.discovery.url</span><span class="token punctuation">=</span><span class="token value attr-value">http://127.0.0.1:8849?namespaceId=XXXXXX&amp;...</span>
+
+<span class="token comment"># consul驱动</span>
+<span class="token key attr-name">jsonrpc.discovery.driver-name</span><span class="token punctuation">=</span><span class="token value attr-value">com.sunquakes.jsonrpc4j.discovery.Nacos</span>
+``</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/sunquakes/moonquakes/edit/master/zh/guide/java.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/zh/guide/golang.html" class="prev">
+        Golang
+      </a></span> <span class="next"><a href="/zh/guide/javascript.html">
+        Javascript
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.63a1c23e.js" defer></script><script src="/assets/js/2.778bb4ad.js" defer></script><script src="/assets/js/1.f8bb34da.js" defer></script><script src="/assets/js/33.34be928d.js" defer></script>
+  </body>
+</html>
