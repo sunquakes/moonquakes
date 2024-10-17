@@ -5,7 +5,7 @@ import com.sunquakes.jsonrpc4j.JsonRpcProtocol;
 import io.moonquakes.javatcp.dto.ArgsDto;
 import io.moonquakes.javatcp.dto.ResultDto;
 
-@JsonRpcClient(value = "php_tcp", protocol = JsonRpcProtocol.tcp)
+@JsonRpcClient(value = "php_tcp", protocol = JsonRpcProtocol.TCP)
 public interface IPhpTcpClient {
     ResultDto add(ArgsDto args);
 }
