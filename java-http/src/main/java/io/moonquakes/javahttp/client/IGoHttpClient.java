@@ -5,7 +5,7 @@ import com.sunquakes.jsonrpc4j.JsonRpcProtocol;
 import io.moonquakes.javahttp.dto.ArgsDto;
 import io.moonquakes.javahttp.dto.ResultDto;
 
-@JsonRpcClient(value = "GoHttp", protocol = JsonRpcProtocol.http)
+@JsonRpcClient(value = "GoHttp", protocol = JsonRpcProtocol.HTTP)
 public interface IGoHttpClient {
     ResultDto Add(ArgsDto args);
 }

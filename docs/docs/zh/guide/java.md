@@ -34,7 +34,7 @@ Moonquakes的java部分是一个maven包，目前只支持spring框架。
 <dependency>
     <groupId>com.sunquakes</groupId>
     <artifactId>jsonrpc4j</artifactId>
-    <version>2.1.1-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
 </dependency>
 ```
 
